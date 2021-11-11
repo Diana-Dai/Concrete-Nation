@@ -1,0 +1,52 @@
+{% capture raw_key %}{% render 'ws-group-key' %}{% endcapture %}
+{% assign ws_group_key = raw_key | strip %}
+{% assign discount_group = shop.metafields.ws_groups[ws_group_key] %}
+{% assign custom_prices = product.metafields.ws_genius.custom_prices[ws_group_key] %}
+{% if discount_group %}
+  <script>
+    (function() {
+      var customVariantPrices = {{ custom_prices | json }} || {};
+      var discountGroup = {{ discount_group | json }};
+      var sectionId = "{{ section.id }}";
+      var productScriptSelector = 'ProductJson-' + sectionId;
+      var product = {%- render 'wc_product_json', product: product -%};
+      var getCustomVariantPrice = function(variant) {
+        var price = variant.price;
+        var customPrice = customVariantPrices[variant.id];
+        if (discountGroup.type === 'local' && customPrice) {
+          price = customPrice * 100;
+        }
+        if (discountGroup.type === 'global' && discountGroup.discount) {
+          var discount = Math.floor(variant.price * discountGroup.discount / 100);
+          price -= discount;
+        }
+        return price;
+      };
+
+      product.variants.forEach(function(v) {
+        v.price = getCustomVariantPrice(v);
+      });
+
+      var productScript = document.getElementById(productScriptSelector);
+      if (productScript) {
+        productScript.innerHTML = JSON.stringify(product);
+      }
+
+      function triggerVariantChange() {
+        var productSelect = document.getElementsByTagName("select");
+        [].forEach.call(productSelect, (function(select) {
+          select.dispatchEvent(new Event('change', {bubbles: true}));
+        }));
+      }
+
+      window.wholesaler = {
+        discountGroup: discountGroup,
+        product: product,
+        getVariantPrice: getCustomVariantPrice,
+        triggerVariantChange: triggerVariantChange
+      };
+
+      window.addEventListener('load', triggerVariantChange);
+    })();
+  </script>
+{% endif %}

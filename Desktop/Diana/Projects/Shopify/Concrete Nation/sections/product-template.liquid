@@ -1,0 +1,1355 @@
+
+{% comment %} Wholesale_Club_Product_Prices Start {% endcomment %}
+{% assign base_product = product %}
+{% assign base_variant = product.selected_or_first_available_variant %}
+
+{% if shop.metafields.sawholesale['base_price'] == blank %}
+  {% assign base_price = 'compare_at_price' %}
+{% else %}
+  {% assign base_price = shop.metafields.sawholesale['base_price'] %}
+{% endif %}
+
+{% assign saw_discount = 0 %}{% assign saw_has_discount = false %}
+
+{% if customer.tags != blank %}
+  {% for mf in base_product.metafields.sawholesale %}
+    {% capture product_customer_tag %}{{ mf | first | replace: 'discount_', '' }}{% endcapture %}
+    {% if customer.tags contains product_customer_tag %}
+      {% assign saw_has_discount = true %}
+      {% assign discount_key = product_customer_tag | prepend: 'discount_' %}
+      {% assign price_key = product_customer_tag | prepend: 'price_' %}
+      {% assign saw_discount = base_product.metafields.sawholesale[discount_key] | divided_by: 100.0 %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% assign saw_discount = 1 | minus: saw_discount %}
+
+{% if base_price == 'price' or base_variant.compare_at_price == blank  or base_variant.compare_at_price == 0 or base_variant.compare_at_price < base_variant.price %}
+  {% assign saw_variant_compare_at_price = base_variant.price %}
+{% else %}
+  {% assign saw_variant_compare_at_price = base_variant.compare_at_price %}
+{% endif %}
+
+{% assign cpe = shop.metafields.sawholesale['cpe'] | default: "true" %}
+{% if base_variant.metafields.sawholesale[price_key] != blank and cpe == "true" %}
+  {% assign saw_variant_price = base_variant.metafields.sawholesale[price_key] %}
+{% else %}
+  {% assign saw_variant_price = saw_variant_compare_at_price | times: saw_discount %}
+{% endif %}
+
+{% if saw_has_discount == false or saw_variant_price >= saw_variant_compare_at_price %}
+  {% assign WCProduct_Price = base_product.price %}
+  {% assign WCProduct_ComparePrice = base_product.compare_at_price %}
+  {% assign WCProduct_PriceMin = base_product.price_min %}
+  {% assign WCProduct_ComparePriceMin = base_product.compare_at_price_min %}
+  {% assign WCProduct_PriceMax = base_product.price_max %}
+  {% assign WCProduct_ComparePriceMax = base_product.compare_at_price_max %}
+  {% assign WCProduct_VariantPrice = base_variant.price %}
+  {% assign WCProduct_VariantComparePrice = base_variant.compare_at_price %}
+{% else %}   
+  {% assign WCProduct_Price = saw_variant_price %}
+  {% assign WCProduct_PriceMin = base_product.price_min | times: saw_discount %}
+  {% assign WCProduct_PriceMax = base_product.price_max | times: saw_discount %}
+  {% assign WCProduct_ComparePrice = saw_variant_compare_at_price %}
+  {% if base_product.compare_at_price_min != 0 %}{% assign WCProduct_ComparePriceMin = base_product.compare_at_price_min %}{% else %}{% assign WCProduct_ComparePriceMin = base_product.price_min %}{% endif %}
+  {% if base_product.compare_at_price_max != 0 %}{% assign WCProduct_ComparePriceMax = base_product.compare_at_price_max %}{% else %}{% assign WCProduct_ComparePriceMax = base_product.price_max %}{% endif %}
+  {% assign WCProduct_VariantPrice = saw_variant_price %}
+  {% assign WCProduct_VariantComparePrice = saw_variant_compare_at_price %}
+{% endif %}
+{% comment %} Wholesale_Club_Product_Prices End {% endcomment %}
+<div itemscope itemtype="http://schema.org/Product">
+
+  <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+  <meta itemprop="image" content="https:{{ product.featured_media.preview_image | img_url: 'grande' }}">
+  <meta itemprop="brand" content="{{ product.vendor }}">
+  <meta itemprop="sku" content="{{ product.selected_or_first_available_variant.sku }}">
+
+  {% comment %}Pick an option only makes sense together with dropdowns{% endcomment %}
+  {% if section.settings.product_variant_style == 'dropdowns' and section.settings.pick_an_option %}
+  {% assign pick_an_option = true %}
+  {% else %}
+  {% assign pick_an_option = false %}
+  {% endif %}
+
+  {% if pick_an_option %}
+  {%- assign current_variant = product.selected_variant -%}
+  {% else %}
+  {%- assign current_variant = product.selected_or_first_available_variant -%}
+  {% endif %}
+
+  {% assign on_sale = false %}
+  {% if WCProduct_VariantComparePrice > WCProduct_VariantPrice %}
+  {% assign on_sale = true %}
+  {% endif %}
+
+
+  {% case section.settings.image_size %}
+  {% when 'small' %}
+  {%- assign product_description_width = 'large--seven-twelfths' -%}
+  {%- assign product_image_width = 'large--five-twelfths' -%}
+  {% when 'medium' %}
+  {%- assign product_description_width = 'large--six-twelfths' -%}
+  {%- assign product_image_width = 'large--six-twelfths' -%}
+  {% when 'large' %}
+  {%- assign product_description_width = 'large--five-twelfths' -%}
+  {%- assign product_image_width = 'large--seven-twelfths' -%}
+  {% endcase %}
+
+  <div class="grid product-single product-sticky-wrapper{% if section.settings.product_variant_style == 'dropdowns' %} variant-dropdown-enabled{% else %} variant-swatches-enabled{% endif %}" data-section-id="{{ section.id }}">
+
+    <input type="hidden" id="thumbnail_changes_variant" value="{% if section.settings.thumbnail_changes_variant %}true{% else %}false{% endif %}" />
+
+    <div class="product-images-container{{ product_image_container_width }}">
+
+      <div class="grid__item {{ product_image_width }} context mobile--no-top-margin">
+        <div class="product-single__medias product-images-slider-mobile{% if section.settings.image-display == 'thumbnails' %} product-single__thumbnails product-single__thumbnails--{{ section.settings.thumbnail_position }}{% else %} product-single__fullsize{% endif %}">
+          {% assign featured_media = current_variant.featured_media | default: product.featured_media %}
+
+          {% render 'product-media', product: product, section_id: section.id, featured_media_id: featured_media.id, enable_image_zoom: section.settings.enable_image_zoom, enable_video_loop: section.settings.enable_video_loop %}
+        </div>
+      </div>
+    </div>
+
+    <div class="grid__item {{ product_description_width }}">
+
+      <div class="ui{% if section.settings.enable_sticky %} sticky product-sticky{% endif %}">
+
+        {% if settings.enable-sale-badge %}
+        <div class="product-page--sale-badge{% unless WCProduct_ComparePriceMax > WCProduct_VariantPrice %} hide{% endunless %}">
+          {{ 'products.product.on_sale' | t }}
+        </div>
+        {% endif %}
+        
+        
+
+
+
+        <div class="product-details-wrapper" {% if section.settings.show_sku %}data-show-sku="true"{% else %}data-show-sku="false"{% endif %}>
+          <div class="grid product-meta-header">
+            {% if section.settings.show_vendor and product.vendor != "" %}
+            <div class="grid__item product__meta--vendor large--one-half">
+              <h4>{{ product.vendor | link_to_vendor }}</h4>
+            </div>
+            {% endif %}
+
+            {% if section.settings.show_sku %}
+            <div class="grid__item product__meta--sku large--one-half{% unless section.settings.show_vendor and product.vendor != "" %} push--large--one-half{% endunless %}{% if current_variant.sku == "" %} hide{% endif %}">
+              <h4>{{ 'customer.order.sku' | t }}: <span class="js__currentVariantSKU">{{ current_variant.sku }}</span></h4>
+            </div>
+            {% endif %}
+          </div>
+
+          <h1 itemprop="name" class="product-details-product-title">{{ product.title }}</h1>
+
+          {% if section.settings.description_position == 'inline_top' %}
+          <div class="product-description product-details--form-wrapper---below rte{% if section.settings.enable_readmore %} readmore closed{% endif %}" itemprop="description">
+            {% include 'product-description-tabs' %}
+          </div>
+          {% endif %}
+
+          <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="product-details--form-wrapper{% if product.available %} product-details--form-wrapper---in-stock{% else %} product-details--form-wrapper---out-of-stock{% endif %}">
+            <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+            <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+
+            <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
+
+            <div class="form-vertical">
+              {% form 'product', product, id: "AddToCartForm" %}
+
+              {% assign hide_default_title = false %}
+              {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
+              {% assign hide_default_title = true %}
+              {% endif %}
+
+              {% if product.variants.size > 0  %}
+
+              {% if section.settings.product_variant_style == 'dropdowns' %}
+
+              {% for option in product.options_with_values %}
+              <div class="selector-wrapper js{% if hide_default_title == true %} hide{% endif %}">
+                <wetheme-dropdown>
+                  <label for="SingleOptionSelector-{{ forloop.index0 }}">{{ option.name }}</label>
+                  <select 
+                          class="needsclick form-control"
+                          id="SingleOptionSelector-{{ forloop.index0 }}" autocomplete="off">
+                    {% for value in option.values %}
+                    <option {% if option.selected_value == value %}selected{% endif %} value="{{ value | escape }}">{{ value }}</option>
+                    {% endfor %}
+                  </select>
+                </wetheme-dropdown>
+              </div>
+              {% endfor %}
+
+              {% else %}
+              {% for option in product.options %}
+              {% include 'swatch' with option %}
+              {% endfor %}
+              {% endif %}
+
+              {% endif %}
+
+
+            </div>
+
+            <select name="id"
+                    id="productSelect-{{ section.id }}"
+                    class="needsclick product-single__variants original-select no-js"
+                    autocomplete="off">
+              {% for variant in product.variants %}
+{% comment %} Wholesale_Club_Product_Prices Start {% endcomment %}
+{% assign base_product = product %}
+{% assign base_variant = variant %}
+
+{% if shop.metafields.sawholesale['base_price'] == blank %}
+  {% assign base_price = 'compare_at_price' %}
+{% else %}
+  {% assign base_price = shop.metafields.sawholesale['base_price'] %}
+{% endif %}
+
+{% assign saw_discount = 0 %}{% assign saw_has_discount = false %}
+
+{% if customer.tags != blank %}
+  {% for mf in base_product.metafields.sawholesale %}
+    {% capture product_customer_tag %}{{ mf | first | replace: 'discount_', '' }}{% endcapture %}
+    {% if customer.tags contains product_customer_tag %}
+      {% assign saw_has_discount = true %}
+      {% assign discount_key = product_customer_tag | prepend: 'discount_' %}
+      {% assign price_key = product_customer_tag | prepend: 'price_' %}
+      {% assign saw_discount = base_product.metafields.sawholesale[discount_key] | divided_by: 100.0 %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% assign saw_discount = 1 | minus: saw_discount %}
+
+{% if base_price == 'price' or base_variant.compare_at_price == blank  or base_variant.compare_at_price == 0 or base_variant.compare_at_price < base_variant.price %}
+  {% assign saw_variant_compare_at_price = base_variant.price %}
+{% else %}
+  {% assign saw_variant_compare_at_price = base_variant.compare_at_price %}
+{% endif %}
+
+{% assign cpe = shop.metafields.sawholesale['cpe'] | default: "true" %}
+{% if base_variant.metafields.sawholesale[price_key] != blank and cpe == "true" %}
+  {% assign saw_variant_price = base_variant.metafields.sawholesale[price_key] %}
+{% else %}
+  {% assign saw_variant_price = saw_variant_compare_at_price | times: saw_discount %}
+{% endif %}
+
+{% if saw_has_discount == false or saw_variant_price >= saw_variant_compare_at_price %}
+  {% assign WCProduct_Price = base_product.price %}
+  {% assign WCProduct_ComparePrice = base_product.compare_at_price %}
+  {% assign WCProduct_PriceMin = base_product.price_min %}
+  {% assign WCProduct_ComparePriceMin = base_product.compare_at_price_min %}
+  {% assign WCProduct_PriceMax = base_product.price_max %}
+  {% assign WCProduct_ComparePriceMax = base_product.compare_at_price_max %}
+  {% assign WCProduct_VariantPrice = base_variant.price %}
+  {% assign WCProduct_VariantComparePrice = base_variant.compare_at_price %}
+{% else %}   
+  {% assign WCProduct_Price = saw_variant_price %}
+  {% assign WCProduct_PriceMin = base_product.price_min | times: saw_discount %}
+  {% assign WCProduct_PriceMax = base_product.price_max | times: saw_discount %}
+  {% assign WCProduct_ComparePrice = saw_variant_compare_at_price %}
+  {% if base_product.compare_at_price_min != 0 %}{% assign WCProduct_ComparePriceMin = base_product.compare_at_price_min %}{% else %}{% assign WCProduct_ComparePriceMin = base_product.price_min %}{% endif %}
+  {% if base_product.compare_at_price_max != 0 %}{% assign WCProduct_ComparePriceMax = base_product.compare_at_price_max %}{% else %}{% assign WCProduct_ComparePriceMax = base_product.price_max %}{% endif %}
+  {% assign WCProduct_VariantPrice = saw_variant_price %}
+  {% assign WCProduct_VariantComparePrice = saw_variant_compare_at_price %}
+{% endif %}
+{% comment %} Wholesale_Club_Product_Prices End {% endcomment %}
+
+              {% if variant.available %}
+
+              {% comment %}
+              Note: if you use option_selection.js, your <select> tag will be overwritten, meaning what you have inside <option> will not reflect what you coded below.
+              {% endcomment %}
+              
+              
+              <option 
+                      data-vid="{{ variant.inventory_quantity }}"
+                      data-title="{{ variant.title }}"
+                      {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %}
+                      data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ WCProduct_VariantPrice | money_with_currency }}</option>
+
+              {% else %}
+              <option data-vid="{{ variant.inventory_quantity }}" value="{{ variant.id }}" data-title="{{ variant.title }}" disabled="disabled">
+                {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+              </option>
+              {% endif %}
+              {% endfor %}
+              </select>
+              
+                           
+
+              {% if section.settings.show_quantity_selector %}
+              
+              
+              <div class="{% if section.settings.product_variant_style == 'dropdowns' %}selector-wrapper{% else %}swatches-wrapper{% endif %} {% if section.settings.image_size == 'large' %}col-md-12{% else %}col-md-6{% endif %} col-sm-12 col-xs-12">
+                <label for="Quantity" class="quantity-selector product-sub-label">{{ 'products.product.quantity' | t }}</label>
+
+                {% if settings.ajax_cart_method == "drawer" %}
+                <input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector" />
+                {% else %}
+                <div class="js-qty nonajax-quantity-selector">
+                  <button type="button" class="js-qty__adjust js-qty__adjust--minus icon-fallback-text">
+                    <i class="fa fa-minus" aria-hidden="true"></i>
+                    <span class="fallback-text">−</span>
+                  </button>
+                  <input type="text" class="js-qty__num" value="1" min="1" aria-label="quantity" pattern="[0-9]*" name="quantity" id="Quantity">
+                  <button type="button" class="js-qty__adjust js-qty__adjust--plus icon-fallback-text">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                    <span class="fallback-text">+</span>
+                  </button>
+                </div>
+                {% endif %}
+              </div>
+              {% endif %}
+              
+              
+
+              {% if WCProduct_ComparePriceMax > WCProduct_Price %}
+              <p id="ComparePrice" class="js">
+                <span class="money">{{ WCProduct_VariantComparePrice | money }}</span>
+              </p>
+              <span class="visually-hidden">{{ 'products.general.sale_price' | t }}</span>
+              {% endif %}
+
+              {% case section.settings.show_discount %}
+
+              {% when 'percentage' %}
+
+              <li class="product-page--pricing--discount">
+                <span class="variant-percentage-wrapper{% unless on_sale %} hide{% endunless %}">
+                  -<span class="variant-percentage">{{ WCProduct_VariantComparePrice | minus: WCProduct_VariantPrice | times: 100.0 | divided_by: WCProduct_VariantComparePrice | money_without_currency | times: 100 | remove: '.0'}}%</span>
+                </span>
+              </li>
+
+              {% when 'value' %}
+
+              <li class="product-page--pricing--discount">
+                <span class="variant-value-wrapper{% unless on_sale %} hide{% endunless %}">
+                  -<span class="variant-value"><span class="money">{{ WCProduct_VariantComparePrice | minus: WCProduct_VariantPrice | money }}</span></span>
+                </span>
+              </li>
+
+              {% endcase %}
+
+              <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
+              <span id="ProductPrice" class="h2 js" itemprop="price" data-price="{{ WCProduct_VariantPrice | divided_by: 100 }}" content="{{ WCProduct_VariantPrice | divided_by: 100 }}">
+                <span class="money">{{ WCProduct_VariantPrice | money }}</span>
+              </span>
+              
+              <!-- Zip WIDGET -->
+{%include 'zip-widget'%}
+<style>
+  #zip-prod-widget > iframe { 
+    position: relative !important;
+    max-width: 300px;
+  }
+  
+p.zip-paragraph {
+    display: flex;
+    align-items: center;
+}
+  
+  p.zip-paragraph img {
+    margin: 0 5px; 0 0
+}
+</style>
+<div style="cursor:pointer;display: none;" id="zip-prod-widget" data-zm-asset="productwidget" data-zm-widget="popup" data-zm-popup-asset="termsdialog"></div>
+<p class="zip-paragraph" data-product-id="4511898402869" style="margin-top: 0px; margin-bottom: 0px;">
+    <span class="zip-text1">or own it from $40 per month with </span>
+    <img height="25px" class="zip-logo"
+        src="https://cdn.shopify.com/s/files/1/0287/8518/0725/files/logo-zip-colour2_1_x50.png?v=1598584518"
+        srcset="https://cdn.shopify.com/s/files/1/0287/8518/0725/files/logo-zip-colour2_1_x50.png?v=1598584518" alt="zip-link">
+        <span class="zip-text3">&nbsp;</span>
+
+    <a class="zip-link" href="https://zip.co/" target="_blank">
+        <u class="zip-link-inner" style="font-size: 12px; text-decoration: underline;">More info</u>
+    </a>
+</p>
+              
+              <!-- end Zip WIDGET -->
+              
+              <br>
+              <br>
+
+              {% include 'unit-price-measurement-variant', variant: current_variant %}
+
+              {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
+              <div class="product-page__policies rte">
+                {%- if shop.taxes_included and section.settings.tax_included -%}
+                {{ 'products.product.include_taxes' | t }}
+                {%- endif -%}
+                {%- if shop.shipping_policy.body != blank and section.settings.shipping_policy -%}
+                {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+                {%- endif -%}
+              </div>
+              {%- endif -%}
+              {{ total_price | money_without_currency }}
+ 
+              
+              <div class="paymentButtonsWrapper">
+                <button 
+                        type="submit" onclick="pintrk('track', 'addtocart', {currency:'USD',value: {{product.selected_variant.price | money_without_currency}},order_quantity: 1});" 
+                        name="add" id="AddToCart" class="btn{% if section.settings.show_smart_checkout %} add-to-cart--secondary{% endif %}">
+                  <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
+
+                  <script>
+                    // pintrk('track', 'addtocart', {
+                    // value: 100,
+                    // order_quantity: 1,
+                    // currency: 'USD',
+                    // order_id: 'X-15148',
+                    // line_items: [
+                    // {
+                    // product_name: '{{ product.title }}',
+                    //   product_id: '{{ product.id }}',
+                    //   product_category: '{{ product.type }}',
+                    // product_variant_id: '1414-Red',
+                    // product_variant: 'Red',
+                    // product_price: 99.99,
+                    // product_quantity: 1
+                    // }
+                    // ]
+                    // });
+
+
+//                     window.addEventListener('load', () => {
+//                                             const addCart = document.querySelector('#productSelect-product-template');
+//                     const select = document.querySelector('#SingleOptionSelector-0');
+//                     const qty = document.querySelector('.js-qty.nonajax-quantity-selector');
+//                     const price = document.querySelector('#ProductPrice');
+// 					console.log(addCart);
+//                     if(addCart) {
+//                       addCart.addEventListener('click', (ev) => {
+//                           let option = select.querySelectorAll('option');
+//                         option.forEach(opt => {
+//                           if(option.selected) {
+//                             option = opt;
+//                           }
+//                         })
+//                         console.log(option);
+//                           pintrk('track', 'addtocart', {
+//                           value: '{{ WCProduct_Price | money }}',
+//                           order_quantity: qty.value,
+//                           currency: 'USD',
+// //                           order_id: 'X-15148',
+//                           line_items: [
+//                           {
+//                           product_name: '{{ product.title }}',
+//                             product_id: '{{ product.id }}',
+//                             product_category: '{{ product.type }}',
+//                           product_variant_id: option.dataset.sku,
+// //                           product_variant: 'Red',
+//                           product_price: price.dataset.price ,
+//                           product_quantity: option.dataset.vid	
+//                           }
+//                           ]
+//                           });
+// //                       ev.preventDefault();
+// 						}); 
+//                     }
+//                     });
+
+                  </script>
+
+                </button>
+
+                {% if section.settings.show_smart_checkout %}
+                {{ form | payment_button }}
+                {% endif %}
+              </div>
+
+              {% endform %}
+
+              {% if section.settings.enable_out_of_stock_form %}
+              {% include 'out-of-stock-form' %}
+              {% endif %}
+
+              {% if section.settings.trust-badge %}
+              <span class="trust-badge-container">
+                {% capture badge_props %}style="width: {{ section.settings.trust-badge_max_width | escape }}px"{% endcapture %}
+                {% include 'responsive-image' with section.settings.trust-badge, class:'trust-badge', alt: '', blur: false, props: badge_props %}
+              </span>
+              {% endif %}
+              </div>
+
+          </div>
+
+          {% if section.settings.description_position == 'inline_bottom' %}
+          <div class="product-description rte{% if section.settings.enable_readmore %} readmore closed{% endif %}" itemprop="description">
+            {% include 'product-description-tabs' %}
+          </div>
+          {% endif %}
+
+          <div class="grid product__meta">
+
+            {% if section.settings.show_tags and product.tags.size > 0 %}
+            <div class="grid__item product__meta--tags large--one-whole">
+              <span><strong>{{ 'products.product.tags' | t }}:</strong> </span>
+              {% for tag in product.tags %}
+              <a href="{{ routes.all_products_collection_url }}/{{ tag | handleize }}"><span>{{ tag }}</span></a>{% if forloop.last == false %}, {% endif %}
+              {% endfor %}
+            </div>
+            {% endif %}
+
+            {% if section.settings.show_collections and product.collections.size > 0 %}
+            <div class="grid__item product__meta--tags large--one-whole">
+              <span><strong>{{ 'products.product.category' | t }}:</strong> </span>
+              {% for collection in product.collections %}
+              <a href="{{ collection.url }}"><span>{{ collection.title }}</span></a>{% if forloop.last == false %}, {% endif %}
+              {% endfor %}
+            </div>
+            {% endif %}
+
+            {% if section.settings.show_type and product.type != "" %}
+            <div class="grid__item product__meta--type large--one-whole">
+              <span><strong>{{ 'products.product.type' | t }}: </strong></span>
+              <span>{{ product.type }}</span>
+            </div>
+            {% endif %}
+
+          </div>
+
+          {% if settings.social_sharing_product %}
+          {% include 'social-share' %}
+          {% endif %}
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% if section.settings.description_position == 'full_width' %}
+  <div class="product-description-container">
+    <div class="product-description product-description_full-width rte{% if section.settings.enable_readmore %} readmore closed{% endif %}" itemprop="description">
+      {% include 'product-description-tabs' %}
+    </div>
+  </div>
+  {% endif %}
+
+  
+{% comment %}Start automatically added Judge.me widget{% endcomment %}
+  {% render 'judgeme_widgets', widget_type: 'judgeme_review_widget', concierge_install: true, product: product %}
+{% comment %}End automatically added Judge.me widget{% endcomment %}
+{% if section.settings.show_reviews %}
+
+  <div id="shopify-product-reviews--wrapper">
+
+    <div class="sitewide--title-wrapper">
+      <h2 class="page--title">{{ 'products.general.product_reviews' | t }}</h2>
+    </div>
+
+    <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+
+  </div>
+
+
+
+  {% endif %}
+
+  {% if section.settings.enable_recently_viewed %}
+  {% include 'recently-viewed' %}
+  {% endif %}
+
+
+</div>
+
+{% comment %}
+To take advantage of a callback on the select dropdown, add option_selection.js
+and customize the JS in timber.productPage as needed.
+
+Currently, timber.productPage does the following:
+- Hides your <select> tag from above
+- Breaks out the product variants into separate product options, if more than one exists
+- Generates a <select> tag for each product option
+- Enables/disables elements based on variant availability
+
+Callback notes:
+- Keep the callback available to the global scope (window.selectCallback) so that advanced
+addons can override it.
+* E.g. multiple currencies http://docs.shopify.com/manual/configuration/store-customization/currencies-and-translations/currencies/how-to-toggle-between-two-currencies
+{% endcomment %}
+
+{% unless product.empty? %}
+
+<script type="application/json" id="ProductJson-{{ section.id }}">
+    {%- render 'wc_product_json', product: product -%}
+</script>
+
+{% endunless %}
+
+<input type="hidden" id="p_handle" value="{{ product.handle }}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+
+  $phandle = $('#p_handle').val();
+  if($phandle=='oasis-freestanding-concrete-bath'){
+  $text_message =`This product is made to order. Please allow 12-14 weeks for production (subject to change in busy periods.)`; 
+  }
+  else if($phandle=='valencia-freestanding-concrete-bath'){
+  $text_message =`This product is made to order. Please allow 12-14 weeks for production (subject to change in busy periods.)`; 
+  }else if($phandle=='halo-concrete-basin'){
+  $text_message =`This product is made to order. Please allow 8-10 weeks for production (subject to change in busy periods.)
+`; 
+  }
+  
+  else if($phandle=='arc-concrete-basin'){
+  $text_message =`This product is made to order. Please allow 8-10 weeks for production (subject to change in busy periods.)
+`; 
+  }
+  
+  else if($phandle=='lux-concrete-basin'){
+  $text_message =`This product is made to order. Please allow 8-10 weeks for production (subject to change in busy periods.)
+
+`; 
+  }
+  
+  else if($phandle=='petite-valencia-freestanding-concrete-bath'){
+  $text_message =`This product is made to order. Please allow 12-14 weeks for production (subject to change in busy periods.)
+
+`; 
+  }
+  
+   else if($phandle=='malta-concrete-basin'){
+  $text_message =`This product is made to order. Please allow 9-11 weeks for production (subject to change in busy periods.)`; 
+  }
+  
+   else if($phandle=='amalfi-concrete-basin'){
+  $text_message =`This product is made to order. Please allow 9-11 weeks for production (subject to change in busy periods.)
+`; 
+  }
+  
+   else if($phandle=='milos-concrete-basin-1'){
+  $text_message =`This product is made to order. Please allow 8-10 weeks for production (subject to change in busy periods.)`; 
+  }
+  
+  else if($phandle=='terra-concrete-basin'){
+  $text_message =`This product is made to order. Please allow 8-10 weeks for production (subject to change in busy periods.)
+`; 
+  }
+  
+  else if($phandle=='aura-pod-concrete-wall-mounted-basin'){
+  $text_message =`This product is made to order. Please allow 9-11 weeks for production (subject to change in busy periods.)`; 
+  }
+  
+  else if($phandle=='mira-pod-concrete-basin'){
+  $text_message =`This product is made to order. Please allow 9-11 weeks for production (subject to change in busy periods.)
+`; 
+  }
+  
+  else if($phandle=='como-freestanding-concrete-basin'){
+  $text_message =`This product is made to order. Please allow 9-11 weeks for production (subject to change in busy periods.)`; 
+  }
+  
+  
+    else if($phandle=='tropez-freestanding-concrete-basin'){
+  $text_message =`This product is made to order. Please allow 9-11 weeks for production (subject to change in busy periods.)
+`; 
+  }
+  
+   else if($phandle=='cosa-concrete-freestanding-basin'){
+  $text_message =`This product is made to order. Please allow 9-11 weeks for production (subject to change in busy periods.)`; 
+  }
+  
+  
+  
+  //alert($text_message);
+  window.addEventListener('load', () => {
+                          setTimeout(() => {
+    const selectedVariant = document.querySelectorAll('.wetheme-dropdown__wrapper li');
+    const weeHeeDrop = document.querySelector('.wetheme-dropdown.fit-parent.wetheme-dropdown--closed.wetheme-dropdown--down');
+    const stockMessage = document.createElement('div');
+    const outStockMessage = document.createElement('div');
+    weeHeeDrop.insertAdjacentElement('afterend', stockMessage);
+    const productPolitics = document.querySelector('.product-page__policies.rte');
+    productPolitics.insertAdjacentElement('beforebegin', outStockMessage);
+    const selectBox = document.querySelector('select#productSelect-product-template');    
+    let selectedOption = selectBox.querySelector(`option[value="${selectBox.value}"]`);
+    if(parseInt(selectedOption.dataset.vid) > 0) {
+      stockMessage.innerText = `We currently have ${selectedOption.dataset.vid}  in stock`;
+    } else {
+      stockMessage.innerText = ``;
+    }
+    
+    if(parseInt(selectedOption.dataset.vid) > 0) {
+      stockMessage.innerText = `We currently have ${selectedOption.dataset.vid}  in stock`;
+      outStockMessage.innerHTML = '';
+    } else {
+      outStockMessage.innerHTML =$text_message; //`This product is made to order. <strong> Please allow 6-8 weeks for production (subject to change in busy periods.)`;
+      stockMessage.innerText = '';
+    }
+
+    selectedVariant.forEach(variants => {
+      variants.addEventListener('click', (ev) => {
+        selectedOption = selectBox.querySelector(`option[value="${selectBox.value}"]`);
+        if(parseInt(selectedOption.dataset.vid) > 0) {
+          stockMessage.innerText = `We currently have ${selectedOption.dataset.vid}  in stock`;
+          outStockMessage.innerHTML = '';
+        } else {
+          outStockMessage.innerHTML =$text_message; //`This product is madeto order. <strong> Please allow 6-8 weeks for production (subject to change in busy periods.)`;
+          stockMessage.innerText = '';
+        }
+        ev.preventDefault();
+      });
+    });
+  }, 100);
+
+  });
+
+</script>
+
+<script>
+  window.addEventListener('load', () => {
+	const autopay = document.querySelector('.afterpay-paragraph');
+  
+  	if(autopay) {
+      const afterpayLogo = autopay.querySelector('.afterpay-logo');
+      afterpayLogo ? afterpayLogo.src = "https://cdn.shopify.com/s/files/1/0287/8518/0725/files/logo-afterpay-colour2.png?v=1598584510" : false;
+      afterpayLogo ? afterpayLogo.srcset = "https://cdn.shopify.com/s/files/1/0287/8518/0725/files/logo-afterpay-colour2.png?v=1598584510" : false;
+    
+//       const afterpayLink = autopay.querySelector('.afterpay-link');
+//       afterpayLink ? afterpayLink.href = "https://zip.co/" : false;
+    }
+  });
+  
+ 
+  
+</script>
+
+<script>
+  const selectElement = document.querySelector('#productSelect-product-template');
+    selectElement.addEventListener('change', function () {
+      alert('sdfsdfsdf');
+  });
+</script>  
+
+{% schema %}
+{
+"name": {
+"en": "Product pages",
+"de": "Produktseiten",
+"es": "Páginas de producto",
+"fr": "Pages des produits",
+"pt-PT": "Páginas de produtos"
+},
+"settings": [
+{
+"type": "checkbox",
+"id": "show_quantity_selector",
+"label": {
+"en": "Show quantity selector",
+"de": "Anzahlauswähler anzeigen",
+"es": "Mostrar selector de cantidad",
+"fr": "Afficher le sélecteur de quantité",
+"pt-PT": "Mostrar selecionador de quantidade"
+},
+"default": true
+},
+{
+"type": "checkbox",
+"id": "show_tags",
+"label": {
+"en": "Show tags",
+"de": "Tags anzeigen",
+"es": "Mostrar etiquetas",
+"fr": "Afficher les étiquettes",
+"pt-PT": "Mostrar etiquetas"
+},
+"default": false
+},
+{
+"type": "checkbox",
+"id": "show_collections",
+"label": {
+"en": "Show collections",
+"de": "Kollektionen anzeigen",
+"es": "Mostrar colecciones",
+"fr": "Afficher les collections",
+"pt-PT": "Mostrar coleções"
+},
+"default": false
+},
+{
+"type": "checkbox",
+"id": "show_type",
+"label": {
+"en": "Show type",
+"de": "Typ anzeigen",
+"es": "Mostrar tipo",
+"fr": "Type d'affichage",
+"pt-PT": "Mostrar tipo"
+},
+"default": false
+},
+{
+"type": "checkbox",
+"id": "show_vendor",
+"label": {
+"en": "Show vendor",
+"de": "Verkäufer anzeigen",
+"es": "Mostrar vendedor",
+"fr": "Afficher le vendeur",
+"pt-PT": "Mostrar vendedor"
+},
+"default": false
+},
+{
+"type": "checkbox",
+"id": "show_sku",
+"label": {
+"en": "Show SKU",
+"de": "Bestandseinheit anzeigen",
+"es": "Mostrar SKU",
+"fr": "Afficher SKU",
+"pt-PT": "Mostrar SKU"
+},
+"default": false
+},
+{
+"type": "checkbox",
+"id": "shipping_policy",
+"label": {
+"en": "Show shipping policy link",
+"de": "Link zur Versandrichtlinie anzeigen",
+"es": "Mostrar enlace de política de envío",
+"fr": "Afficher le lien de la politique d'expédition",
+"pt-PT": "Mostrar hiperligação da política de envios"
+},
+"default": true
+},
+{
+"type": "checkbox",
+"id": "tax_included",
+"label": {
+"en": "Show 'tax included' message",
+"de": "Nachricht \"Steuer enthalten\" anzeigen",
+"es": "Mostrar mensaje \"impuesto incluido\"",
+"fr": "Afficher le message « taxe incluse »",
+"pt-PT": "Mostrar mensagem de 'impostos incluídos'"
+},
+"default": true
+},
+{
+"type": "checkbox",
+"id": "show_smart_checkout",
+"label": {
+"en": "Show dynamic checkout button",
+"de": "Dynamischen Bezahlbutton anzeigen",
+"es": "Mostar el botón de compra dinámica",
+"fr": "Afficher le bouton de paiement dynamique",
+"pt-PT": "Mostrar botão de checkout dinâmico"
+},
+"default": true,
+"info": {
+"en": "Lets customers check out directly using a familiar payment method. [Learn more](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+"de": "Lässt Kunden direkt unter Verwendung einer bekannten Zahlungsmethode bezahlen. [Mehr erfahren](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+"es": "Permita a los clientes finalizar su compra directamente utilizando un método de pago que les sea familiar. [Aprenda más](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+"fr": "Permet aux clients de payer directement en utilisant un mode de paiement familier. [En savoir plus](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+"pt-PT": "Permita que os clientes façam checkout diretamente utilizando um método de pagamento familiar. [Saber mais](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)"
+}
+},
+{
+"type": "image_picker",
+"id": "trust-badge",
+"label": {
+"en": "Trust badge",
+"de": "Vertrauenssiegel",
+"es": "Distintivo de confianza",
+"fr": "Badge de confiance",
+"pt-PT": "Crachá de confiança"
+},
+"info": {
+"en": "100 x 300px recommended. [Learn more](https://flowdocs.wetheme.com/templates/product-pages/trust-badges)",
+"de": "100 x 300 px empfohlen. [Mehr erfahren](https://flowdocs.wetheme.com/templates/product-pages/trust-badges)",
+"es": "Recomendado: 100 x 300px. [Aprenda más](https://flowdocs.wetheme.com/templates/product-pages/trust-badges)",
+"fr": "100 x 300 px recommandé. [En savoir plus] (https://flowdocs.wetheme.com/templates/product-pages/trust-badges)",
+"pt-PT": "100 x 300px recomendado. [Saiba mais](https://flowdocs.wetheme.com/templates/product-pages/trust-badges)"
+}
+},
+{
+"type": "range",
+"id": "trust-badge_max_width",
+"min": 10,
+"max": 920,
+"step": 10,
+"unit": {
+"en": "px",
+"de": "px",
+"es": "px",
+"fr": "px",
+"pt-PT": "px"
+},
+"label": {
+"en": "Width",
+"de": "Breite",
+"es": "Ancho",
+"fr": "Largeur",
+"pt-PT": "Largura"
+},
+"default": 260
+},
+{
+"type": "select",
+"id": "show_discount",
+"label": {
+"en": "Enable discount savings?",
+"de": "Rabattersparnisse aktivieren?",
+"es": "¿Habilitar ahorros por descuentos?",
+"fr": "Permettre des économies de rabais ?",
+"pt-PT": "Ativar promoções?"
+},
+"options": [
+{
+"value": "hide",
+"label": {
+"en": "Hide",
+"de": "Verbergen",
+"es": "Ocultar",
+"fr": "Cacher",
+"pt-PT": "Ocultar"
+}
+},
+{
+"value": "percentage",
+"label": {
+"en": "Percentage",
+"de": "Prozentsatz",
+"es": "Porcentaje",
+"fr": "Pourcentage",
+"pt-PT": "Percentagem"
+}
+},
+{
+"value": "value",
+"label": {
+"en": "Value",
+"de": "Wert",
+"es": "Valor",
+"fr": "Valeur",
+"pt-PT": "Valor"
+}
+}
+],
+"default": "percentage",
+"info": {
+"en": "Discounts will only be shown on variants that are on sale",
+"de": "Rabatte werden nur auf Varianten angezeigt, die im Angebot sind",
+"es": "Los descuentos solo se mostrarán en las variantes que están de oferta.",
+"fr": "Les remises ne s'appliqueront qu'aux variantes en vente.",
+"pt-PT": "Os descontos apenas serão exibidos em variantes que estejam à venda"
+}
+},
+{
+"type": "select",
+"id": "description_position",
+"label": {
+"en": "Description position",
+"de": "Beschreibung Position",
+"es": "Descripción de la posición",
+"fr": "Position de la description",
+"pt-PT": "Descrição posição"
+},
+"options": [
+{
+"value": "inline_top",
+"label": {
+"en": "Above add to cart button",
+"de": "Über der Schaltfläche \"Zum Einkaufskorb hinzufügen\"",
+"es": "Arriba añadir al botón del carrito",
+"fr": "Ci-dessus, le bouton Ajouter au panier",
+"pt-PT": "Acima do botão adicionar ao carrinho"
+}
+},
+{
+"value": "inline_bottom",
+"label": {
+"en": "Below add to cart button",
+"de": "Unter der Schaltfläche \"Zum Einkaufskorb hinzufügen\"",
+"es": "Abajo añadir al botón del carrito",
+"fr": "Ci-dessous, le bouton Ajouter au panier",
+"pt-PT": "Abaixo do botão adicionar ao carrinho"
+}
+},
+{
+"value": "full_width",
+"label": {
+"en": "Below product image",
+"de": "Unter dem Produktbild",
+"es": "Debajo de la imagen del producto",
+"fr": "Ci-dessous, l’Image du produit",
+"pt-PT": "Abaixo da imagem do produto"
+}
+}
+],
+"default": "inline_bottom"
+},
+{
+"type": "checkbox",
+"id": "enable_readmore",
+"label": {
+"en": "Enable 'read more' for description",
+"de": "'Mehr erfahren' für eine Beschreibung aktivieren",
+"es": "Habilitar «más información» para la descripción",
+"fr": "Activer « Lire la suite » pour la description",
+"pt-PT": "Ativar \"ler mais\" para descrição"
+},
+"default": false
+},
+{
+"type": "checkbox",
+"id": "enable_sticky",
+"label": {
+"en": "Enable sticky description",
+"de": "Sticky-Beschreibung aktivieren",
+"es": "Habilitar descripción pegajosa",
+"fr": "Activer la description collante",
+"pt-PT": "Ativar descrição fixa"
+},
+"default": true
+},
+{
+"type": "checkbox",
+"id": "enable_out_of_stock_form",
+"label": {
+"en": "Enable out of stock email",
+"de": "Die E-Mail \"Nicht lieferbar\" aktivieren",
+"es": "Habilitar correo electrónico agotado",
+"fr": "Activer le courriel Rupture de stock",
+"pt-PT": "Ativar e-mail de esgotado"
+},
+"default": false
+},
+{
+"type": "header",
+"content": {
+"en": "Product variants",
+"de": "Produktvarianten",
+"es": "Variantes del producto",
+"fr": "Variantes de produits",
+"pt-PT": "Variantes do produto"
+}
+},
+{
+"type": "radio",
+"id": "product_variant_style",
+"label": {
+"en": "Product variant style",
+"de": "Produkt Variante Stil",
+"es": "Variante de estilo del producto",
+"fr": "Style de la variante du produit",
+"pt-PT": "Estilo da variante de produtos"
+},
+"options": [
+{
+"value": "dropdowns",
+"label": {
+"en": "Dropdowns",
+"de": "Drop-down-Menüs",
+"es": "Menú desplegable",
+"fr": "Menus déroulants",
+"pt-PT": "Pendentes"
+}
+},
+{
+"value": "swatches",
+"label": {
+"en": "Swatches",
+"de": "Muster",
+"es": "Muestras",
+"fr": "Échantillons",
+"pt-PT": "Amostras"
+}
+}
+],
+"default": "dropdowns",
+"info": {
+"en": "You may need to upload custom swatch images. [Learn more](https://flowdocs.wetheme.com/faqs/color-swatch-images)",
+"de": "Es könnte sein, dass Sie kundenspezifische Musterbilder hochladen müssen. [Mehr erfahren](https://flowdocs.wetheme.com/faqs/color-swatch-images)",
+"es": "Puede que necesite subir imágenes de muestra personalizadas. [Aprenda más](https://flowdocs.wetheme.com/faqs/color-swatch-images)",
+"fr": "Il se peut que vous ayez besoin de télécharger des images d'échantillons personnalisées. [En savoir plus](https://flowdocs.wetheme.com/faqs/color-swatch-images)",
+"pt-PT": "Poderá ser necessário carregar imagens de amostra personalizadas. [Saber mais](https://flowdocs.wetheme.com/faqs/color-swatch-images)"
+}
+},
+{
+"type": "checkbox",
+"id": "thumbnail_changes_variant",
+"label": {
+"en": "Change variant based on the thumbnail",
+"de": "Variante basierend auf Thumbnail verändern",
+"es": "Cambiar variante en base a la imagen en miniatura",
+"fr": "Modifier la variante en fonction de la vignette",
+"pt-PT": "Alterar base da variante na imagem em miniatura"
+},
+"default": false
+},
+{
+"type": "header",
+"content": {
+"en": "Media",
+"de": "Medien",
+"es": "Medios",
+"fr": "Médias",
+"pt-PT": "Media"
+},
+"info": {
+"en": "Learn more about [media types](https://help.shopify.com/en/manual/products/product-media)",
+"de": "Mehr erfahren über [Medientypen](https://help.shopify.com/en/manual/products/product-media)",
+"es": "Obtenga más información sobre [tipos de medios](https://help.shopify.com/en/manual/products/product-media)",
+"fr": "En savoir plus sur [types de médias](https://help.shopify.com/en/manual/products/product-media)",
+"pt-PT": "Saiba mais sobre [tipos de media](https://help.shopify.com/en/manual/products/product-media)"
+}
+},
+{
+"type": "select",
+"id": "image_size",
+"label": {
+"en": "Size",
+"de": "Größe",
+"es": "Tamaño",
+"fr": "Taille",
+"pt-PT": "Tamanho"
+},
+"info": {
+"en": "Recommended 950px minimum width. [Learn more](https://flowdocs.wetheme.com/faqs/image-sizes)",
+"de": "950 px Mindestbreite empfohlen. [Mehr erfahren](https://flowdocs.wetheme.com/faqs/image-sizes)",
+"es": "Anchura mínima recomendada: 950px. [Aprenda más](https://flowdocs.wetheme.com/faqs/image-sizes)",
+"fr": "Largeur minimale recommandée : 950 px. [En savoir plus] (https://flowdocs.wetheme.com/faqs/image-sizes)",
+"pt-PT": "950px de largura mínima (recomendado). [Saiba mais](https://flowdocs.wetheme.com/faqs/image-sizes)"
+},
+"options": [
+{
+"value": "small",
+"label": {
+"en": "Small",
+"de": "Klein",
+"es": "Pequeño",
+"fr": "Petite",
+"pt-PT": "Pequeno"
+}
+},
+{
+"value": "medium",
+"label": {
+"en": "Medium",
+"de": "Mittel",
+"es": "Mediano",
+"fr": "Moyenne",
+"pt-PT": "Médio"
+}
+},
+{
+"value": "large",
+"label": {
+"en": "Large",
+"de": "Groß",
+"es": "Grande",
+"fr": "Grande",
+"pt-PT": "Grande"
+}
+}
+],
+"default": "medium"
+},
+{
+"type": "radio",
+"id": "image-display",
+"label": {
+"en": "Secondary media display",
+"de": "Sekundäre Mediendarstellung",
+"es": "Visualización de medios secundarios",
+"fr": "Affichage des médias secondaires",
+"pt-PT": "Exibição de media secundária"
+},
+"options": [
+{
+"value": "full-size",
+"label": {
+"en": "Full size",
+"de": "Vollständige Größe",
+"es": "Tamaño completo",
+"fr": "Pleine grandeur",
+"pt-PT": "Tamanho completo"
+}
+},
+{
+"value": "thumbnails",
+"label": {
+"en": "Thumbnails",
+"de": "Thumbnails",
+"es": "Imagen en miniatura",
+"fr": "Vignettes",
+"pt-PT": "Miniaturas"
+}
+}
+],
+"default": "full-size"
+},
+{
+"type": "select",
+"id": "thumbnail_position",
+"label": {
+"en": "Thumbnail position",
+"de": "Thumbnail-Position",
+"es": "Posición de la imagen en miniatura",
+"fr": "Position de la vignette",
+"pt-PT": "Posição da imagem em miniatura"
+},
+"options": [
+{
+"value": "below",
+"label": {
+"en": "Below main media",
+"de": "Unterhalb Hauptmedien",
+"es": "Por debajo de los principales",
+"fr": "Sous les principaux médias",
+"pt-PT": "Abaixo da media principal"
+}
+},
+{
+"value": "left",
+"label": {
+"en": "Left of main media",
+"de": "Links von Hauptmedien",
+"es": "A la izquierda de los principales",
+"fr": "À gauche des principaux médias",
+"pt-PT": "À esquerda da media principal"
+}
+},
+{
+"value": "right",
+"label": {
+"en": "Right of main media",
+"de": "Rechts von Hauptmedien",
+"es": "A la derecha de los principales",
+"fr": "À droite des principaux médias",
+"pt-PT": "À direita da media principal"
+}
+}
+],
+"default": "below"
+},
+{
+"type": "checkbox",
+"id": "enable_image_zoom",
+"label": {
+"en": "Enable zoom for product images",
+"de": "Zoom für Produktbilder aktivieren",
+"es": "Habilitar zoom para la imágenes de los productos",
+"fr": "Activer le zoom pour les images de produits",
+"pt-PT": "Ativar zoom para imagens de produtos"
+},
+"default": false
+},
+{
+"type": "checkbox",
+"id": "enable_video_loop",
+"label": {
+"en": "Enable video looping",
+"de": "Videoschleife erlauben",
+"es": "Habilitar bucle de vídeo",
+"fr": "Activer la boucle vidéo",
+"pt-PT": "Ativar loop de vídeo"
+},
+"default": false
+},
+{
+"type": "header",
+"content": {
+"en": "Reviews",
+"de": "Bewertungen",
+"es": "Opiniones",
+"fr": "Commentaires",
+"pt-PT": "Opiniões"
+}
+},
+{
+"type": "checkbox",
+"id": "show_reviews",
+"label": {
+"en": "Enable",
+"de": "Aktivieren",
+"es": "Habilitar",
+"fr": "Activer",
+"pt-PT": "Ativar efeito de paralaxe"
+},
+"default": false
+},
+{
+"type": "paragraph",
+"content": {
+"en": "You will need to install Shopify's [Product Reviews app](https://apps.shopify.com/product-reviews) before enabling this option.",
+"de": "Sie müssen Shopifys [Produktbewertungen-App](https://apps.shopify.com/product-reviews) installieren, um diese Option aktivieren zu können.",
+"es": "Necesitará instalar la aplicación de Shopify [Product Reviews app](https://apps.shopify.com/product-reviews) antes de habilitar esta opción.",
+"fr": "Vous devrez installer Shopify's [application de commentaires de produits](https://apps.shopify.com/product-reviews) avant d'activer cette option.",
+"pt-PT": "Terá de instalar a [aplicação de Avaliações de Produtos](https://apps.shopify.com/product-reviews) da Shopify antes de ativar esta opção."
+}
+},
+{
+"type": "header",
+"content": {
+"en": "Recently viewed",
+"de": "Zuletzt angesehen",
+"es": "Visitado recientemente",
+"fr": "Récemment consulté",
+"pt-PT": "Recentemente visualizado"
+}
+},
+{
+"type": "checkbox",
+"id": "enable_recently_viewed",
+"label": {
+"en": "Enable",
+"de": "Aktivieren",
+"es": "Habilitar",
+"fr": "Activer",
+"pt-PT": "Ativar efeito de paralaxe"
+},
+"default": true
+},
+{
+"type": "text",
+"id": "recently_viewed_title",
+"label": {
+"en": "Heading",
+"de": "Überschrift",
+"es": "Encabezado",
+"fr": "Rubrique",
+"pt-PT": "Título"
+},
+"default": {
+"en": "Recently viewed products",
+"de": "Zuletzt angesehene Produkte",
+"es": "Productos visitados recientemente",
+"fr": "Produits récemment consultés",
+"pt-PT": "Produtos recentemente visualizados"
+}
+},
+{
+"type": "checkbox",
+"id": "quick_shop_enable_recently_viewed",
+"label": {
+"en": "Show 'Quick view'",
+"de": "Schnellansicht' anzeigen",
+"es": "Mostrar 'Vista rápida'",
+"fr": "Afficher 'Vue rapide'.",
+"pt-PT": "Mostrar \"Visualização rápida\""
+},
+"default": false
+},
+{
+"type": "checkbox",
+"id": "recently_viewed_match_height",
+"label": {
+"en": "Enable auto-height",
+"de": "Automatische Höhe aktivieren",
+"es": "Habilitar altura automática",
+"fr": "Activer la hauteur automatique",
+"pt-PT": "Ativar configuração automática de altura"
+},
+"default": false
+}
+]
+}
+{% endschema %}

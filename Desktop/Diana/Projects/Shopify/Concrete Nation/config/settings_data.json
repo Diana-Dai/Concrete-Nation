@@ -1,0 +1,2078 @@
+{
+  "current": {
+    "color_body_text": "#242424",
+    "color_primary": "#242424",
+    "color_body_bg": "#ffffff",
+    "color_body_bg_secondary": "#ede3de",
+    "sale_badge_color": "#ab8f84",
+    "sale_price_color": "#f26c4f",
+    "enable-sale-badge": true,
+    "sold_out_badge_color": "#e0cfc8",
+    "enable-sold-out-badge": true,
+    "sold_out_badge_font_color": "#ffffff",
+    "cart_color": "#c8ab9f",
+    "color_primary_navigation": "#ffffff",
+    "color_primary_navigation_hover": "#f3f3f3",
+    "header-bg-color": "#d1bdb5",
+    "header-border-color": "#ffffff",
+    "header-transparent-text": "#242424",
+    "header-transparent-background": "#ffffff",
+    "mobile-menu-bg": "#f8f0ee",
+    "mobile-menu-text": "#371515",
+    "mobile-menu-text-hover": "#9f9f9f",
+    "color_primary_button_background": "#d1bdb5",
+    "color_primary_button_text": "#ffffff",
+    "color_primary_button_background_hover": "#e1d3ce",
+    "color_primary_button_text_hover": "#ffffff",
+    "color_secondary_button_background": "#e0cfc8",
+    "color_secondary_button_text": "#ffffff",
+    "color_secondary_button_background_hover": "#dbc1b7",
+    "color_secondary_button_text_hover": "#ffffff",
+    "colorSchemeLightBackground": "#f8f2f2",
+    "colorSchemeLightText": "#636363",
+    "homepage-sections-accent-primary-color": "#dedddb",
+    "homepage-sections-accent-secondary-color": "#636363",
+    "colorSchemeDarkBackground": "#242424",
+    "colorSchemeDarkText": "#ffffff",
+    "pop-up-background-color": "#ffffff",
+    "pop-up-text-color": "#000000",
+    "cart-drawer-bg": "#fff",
+    "cart-drawer-text": "#000000",
+    "color_footer_bg": "#ffffff",
+    "color_footer_text": "#636363",
+    "type_header_font": "lato_n3",
+    "header-text-size": 16,
+    "heading_spacing": 1,
+    "heading_font_case": "normal",
+    "heading_style": "none",
+    "heading_style_color": "#e1e1e1",
+    "type_base_font": "lato_n4",
+    "typography-body-font-size": 16,
+    "type_navigation_font": "lato_n3",
+    "header_font_size": 13,
+    "header_font_case": "normal",
+    "button_style": "rounded",
+    "button_text_case": "uppercase",
+    "button_font_size": 15,
+    "button_font_style": "normal",
+    "product_page_font_size": 22,
+    "product_page_font_case": "uppercase",
+    "product_page_font_style": "normal",
+    "logo_font_size": 18,
+    "announcement_text_size": 12,
+    "announcement_text_spacing": 4,
+    "announcement_text_style": "normal",
+    "announcement_text_case": "normal",
+    "ajax_cart_method": "added",
+    "cart_vendor_enable": false,
+    "cart_notes_enable": true,
+    "enable-additional-checkout-buttons": false,
+    "share_image": "",
+    "sm_facebook_link": "https:\/\/www.facebook.com\/concretenationaus",
+    "sm_twitter_link": "",
+    "sm_instagram_link": "https:\/\/www.instagram.com\/concretenation\/",
+    "sm_tumblr_link": "",
+    "sm_pinterest_link": "https:\/\/www.pinterest.com.au\/concretenation\/",
+    "sm_youtube_link": "",
+    "sm_vimeo_link": "",
+    "sm_flickr_link": "",
+    "sm_snapchat_link": "",
+    "sm_houzz_link": "",
+    "sm_linkedin_link": "",
+    "sm_google_plus_link": "",
+    "social_sharing_title": "Share",
+    "social_sharing_product": true,
+    "social_sharing_blog": true,
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_pinterest": true,
+    "popup--enable": true,
+    "pop-up-time": "7",
+    "popup-newsletter-top": "shopify:\/\/shop_images\/Untitled-6-01.png",
+    "pop-up-text-header-text": "Were working on something new",
+    "pop-up-text-description-text": "<p><em>sign up to our <\/em>newsletter<em> be the first to know.<\/em><\/p>",
+    "popup--show-social-icons": false,
+    "popup--show-newsletter": true,
+    "desktop-popup-style": "fullscreen",
+    "pop-up-delay": 1,
+    "popup--test-mode": false,
+    "favicon": "shopify:\/\/shop_images\/145976488_418832232677838_3080494254543103506_n.png",
+    "animations_enabled": true,
+    "page_fade_enabled": true,
+    "ken_burns_enabled": false,
+    "checkout_header_image": "",
+    "checkout_logo_image": "shopify:\/\/shop_images\/VECTOR_CN_LOGO.jpg",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "large",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#ffffff",
+    "checkout_input_background_color_mode": "transparent",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#f8f0ee",
+    "checkout_heading_font": "Lato",
+    "checkout_body_font": "Lato",
+    "checkout_accent_color": "#371515",
+    "checkout_button_color": "#e0cfc8",
+    "checkout_error_color": "#b64141",
+    "hero-description-color": "#ffffff",
+    "pop-up-text-background-color": "#242424",
+    "pop-up-text-header-text-color": "#fff",
+    "sections": {
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "settings": {
+          "enable_announcement_bar": true,
+          "message_text": "<p>ENJOY FREE SHIPPING AUSTRALIA WIDE WHEN PURCHASING OUR ARC, HALO, LUX AND MILOS BASINS. <\/p>",
+          "message_link": "",
+          "notification-bar--background-color": "#f7f4f4",
+          "notification-bar--text-color": "#8e8e8e",
+          "enable_social_icons": false
+        }
+      },
+      "header": {
+        "type": "header",
+        "blocks": {
+          "1591234388973": {
+            "type": "content",
+            "disabled": true,
+            "settings": {
+              "mega-menu": "SHOP",
+              "mega_image_header_1": "",
+              "mega_image_subheader_1": "",
+              "mega_image_link_1": "",
+              "mega_image_header_2": "",
+              "mega_image_subheader_2": "",
+              "mega_image_link_2": ""
+            }
+          }
+        },
+        "block_order": [
+          "1591234388973"
+        ],
+        "settings": {
+          "sticky_header": false,
+          "logo": "shopify:\/\/shop_images\/VECTOR_CN_LOGO1.png",
+          "logo_max_width": 280,
+          "logo_padding": 0,
+          "logo-placement": "above",
+          "mobile-menu-logo": true,
+          "menu_logo_max_width": 50,
+          "label-enable": false,
+          "cart-style": "shopping-cart",
+          "cart-number": "quantity",
+          "enable_search": true,
+          "overlay_header_homepage": true,
+          "overlay_header_collection": false,
+          "overlay_header_list_collection": false,
+          "overlay_header_contact": false,
+          "overlay_logo": "shopify:\/\/shop_images\/VECTOR_CN_LOGO1.png",
+          "overlay_opacity": 0,
+          "show_locale_selector": false,
+          "show_currency_selector": true,
+          "enable_breadcrumbs": false,
+          "main_linklist": "main-menu",
+          "dropdown_alignment": "left",
+          "enable_mega_menu": true
+        }
+      },
+      "featured-products": {
+        "type": "featured-products",
+        "settings": {
+          "colors": "light",
+          "title": "EXPLORE OUR HANDCRAFTED RANGE OF CONCRETE BASINS",
+          "richtext": "",
+          "collection": "made-to-order",
+          "grid-desktop": 3,
+          "grid-tablet": 3,
+          "grid-mobile": 2,
+          "rows": 1,
+          "quick_shop_enable": false,
+          "hover-effect": true,
+          "show-vendor": false,
+          "show_view_all": false,
+          "match-height": false,
+          "show_reviews": true
+        }
+      },
+      "collection-list": {
+        "type": "collection-list",
+        "blocks": {
+          "collection-0": {
+            "type": "featured_collection",
+            "settings": {
+              "collection": "bench-mounted-concrete-basins",
+              "subheading": "SHOP",
+              "overlay-btn-text": "",
+              "show-gradient-overlay": true,
+              "overlay_font_color": "#ffffff",
+              "overlay_color": "#9f9f9f"
+            }
+          },
+          "collection-1": {
+            "type": "featured_collection",
+            "settings": {
+              "collection": "freestanding-concrete-basins",
+              "subheading": "SHOP",
+              "overlay-btn-text": "",
+              "show-gradient-overlay": true,
+              "overlay_font_color": "#ffffff",
+              "overlay_color": "#9f9f9f"
+            }
+          },
+          "collection-2": {
+            "type": "featured_collection",
+            "settings": {
+              "collection": "pods-wall-mounted-basins",
+              "subheading": "SHOP",
+              "overlay-btn-text": "",
+              "show-gradient-overlay": true,
+              "overlay_font_color": "#ffffff",
+              "overlay_color": "#9f9f9f"
+            }
+          },
+          "1587527127937": {
+            "type": "featured_collection",
+            "settings": {
+              "collection": "freestanding-concrete-baths",
+              "subheading": "SHOP",
+              "overlay-btn-text": "",
+              "show-gradient-overlay": true,
+              "overlay_font_color": "#ffffff",
+              "overlay_color": "#9f9f9f"
+            }
+          }
+        },
+        "block_order": [
+          "collection-0",
+          "collection-1",
+          "collection-2",
+          "1587527127937"
+        ],
+        "settings": {
+          "colors": "white",
+          "title": "",
+          "richtext": "",
+          "items-per-row": 4,
+          "fill-the-area": true,
+          "content-position": "overlay"
+        }
+      },
+      "newsletter": {
+        "type": "newsletter",
+        "settings": {
+          "colors": "light",
+          "newsletter_heading": "Join our Mailing List",
+          "newsletter_description": ""
+        }
+      },
+      "video-hero": {
+        "type": "video-hero",
+        "disabled": true,
+        "settings": {
+          "url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+          "desktopHeight": "450",
+          "mobileHeight": "350",
+          "title": "Shout out",
+          "subheading": "Promote a page or collection",
+          "textAlignment": "center",
+          "textColor": "#000000",
+          "textShadow": false,
+          "heading--text-size": 38,
+          "subheading--text-size": 24,
+          "button_link": "shopify:\/\/collections\/all",
+          "button_label": "Shop now"
+        }
+      },
+      "feature-row": {
+        "type": "feature-row",
+        "disabled": true,
+        "settings": {
+          "colors": "light",
+          "image": "shopify:\/\/shop_images\/171108_ConcreteNation5142.jpg",
+          "parallax": true,
+          "text_overlapping_image": false,
+          "layout": "left",
+          "text_alignment": "center",
+          "image_width": "large",
+          "image_height": "40vw",
+          "title": "OUR FOCUS ON SUSTAINABILITY",
+          "text": "<p>At Concrete Nation, we understand the importance of being socially responsible.<\/p><p><\/p><p>When we launched our brand eight years ago, our goal was to offer ethical, high-quality products that were safe for our clients and the environment.<\/p>",
+          "button_label": "READ MORE",
+          "button_link": "shopify:\/\/pages\/sustainability"
+        }
+      },
+      "feature-row-1": {
+        "type": "feature-row",
+        "settings": {
+          "colors": "white",
+          "image": "shopify:\/\/shop_images\/210512-Concrete-Nation-Petite-Valencia4276.jpg",
+          "parallax": true,
+          "text_overlapping_image": false,
+          "layout": "right",
+          "text_alignment": "center",
+          "image_width": "large",
+          "image_height": "40vw",
+          "title": "UNSURE WHICH BESPOKE HUE WILL WORK BEST WITHIN YOUR PROJECT?",
+          "text": "",
+          "button_label": "Shop Samples Here",
+          "button_link": "shopify:\/\/collections\/samples"
+        }
+      },
+      "indiv-product-1": {
+        "type": "indiv-product",
+        "disabled": true,
+        "settings": {
+          "title": "THIS WEEK'S MUST HAVE",
+          "richtext": "<p>In a disposable society, we pride ourselves on creating timeless, quality investment pieces that work back with any interior or building style and really do become the hero of a space.  <\/p>",
+          "featured_product": "tropez-freestanding-concrete-basin",
+          "product_variant_style": "dropdowns",
+          "show-vendor": false,
+          "show_product_description": false,
+          "show_quantity_selector": false,
+          "show_smart_checkout": false,
+          "show_discount": "percentage",
+          "image-placement": "left",
+          "enable_video_loop": false,
+          "show_reviews": false
+        }
+      },
+      "featured-blog": {
+        "type": "featured-blog",
+        "settings": {
+          "colors": "light",
+          "title": "From the journal",
+          "richtext": "",
+          "blog": "news",
+          "post_limit": 3,
+          "blog_show_date": false
+        }
+      },
+      "slideshow": {
+        "type": "slideshow",
+        "blocks": {
+          "1587524795203": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ConcreteNation_concretenation.com.au.jpg",
+              "mobile_image": "shopify:\/\/shop_images\/Main_I_Version_II.jpg",
+              "title": "MEET OUR PETITE VALENCIA BATH",
+              "text": "<p><a href=\"\/products\/petite-valencia-freestanding-concrete-bath\" title=\"PETITE VALENCIA FREE STANDING CONCRETE BATH\">EXPLORE OUR CONCRETE FREESTANDING BATHS HERE<\/a><\/p>",
+              "button_label": "",
+              "button_link": "shopify:\/\/collections\/raw-collection",
+              "caption-background": "rgba(0,0,0,0)",
+              "caption-text": "#606060",
+              "button-text": "#ffffff",
+              "button-background": "#c1c1c2",
+              "captionHorizontal": "left",
+              "captionAlignment": "left"
+            }
+          }
+        },
+        "block_order": [
+          "1587524795203"
+        ],
+        "settings": {
+          "slider-animation": "slide",
+          "slider-width": "full-screen",
+          "slider-slide-time": 5,
+          "caption-heading-size": 26,
+          "caption-subheading-size": 14,
+          "caption-button-size": 12,
+          "show-slide-dots": false,
+          "show-slide-arrows": false,
+          "slider-navigation-color": "#ffffff"
+        }
+      },
+      "testimonials": {
+        "type": "testimonials",
+        "blocks": {
+          "1590557329018": {
+            "type": "text",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Oasis_Testimonial_Crop.jpg",
+              "testimonial_text": "<p>&quot;We loved working with Concrete Nation to showcase their beautiful products in our latest project. The selection process was easy, from receiving samples to looking up all the product information on the website, to delivery. We love the products and they add so much character to our home&quot;<\/p>",
+              "customer_name": "Bec & George  |  Nectaar",
+              "link": "shopify:\/\/products\/oasis-freestanding-concrete-bath",
+              "stars": 5
+            }
+          },
+          "1587960090904": {
+            "type": "text",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Red_Iron_Testimonial_crop.jpg",
+              "testimonial_text": "<p>&quot;We included the Tropez pedestal basin in our powder room and I&#x27;m obsessed. It&#x27;s a piece of art. The colour is sublime and the organic finish is really special.&quot;<\/p>",
+              "customer_name": "Michael & Carlene  |  Cedar + Suede",
+              "link": "shopify:\/\/products\/tropez-freestanding-concrete-basin",
+              "stars": 5
+            }
+          },
+          "testimonial": {
+            "type": "text",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Halo_tesitmonial_crop.jpg",
+              "testimonial_text": "<p>“ We found CN through scrolling in our feed on Instagram as we were renovating our abode and fell in love with their uniqueness and hand made craft. Outside of us finding our dream products, Kate, Jason and their amazing team made us feel comfortable from the moment we walked into their showroom to the final installation. CN have made our future projects look so exciting and we absolutely can not wait to work with the team again.”<\/p><p><\/p><p><\/p>",
+              "customer_name": "Sarah & Aza  |  Bilinga Beach Abode",
+              "link": "shopify:\/\/products\/halo-concrete-basin",
+              "stars": 5
+            }
+          }
+        },
+        "block_order": [
+          "1590557329018",
+          "1587960090904",
+          "testimonial"
+        ],
+        "settings": {
+          "colors": "accent",
+          "circle_images": true,
+          "title": ""
+        }
+      },
+      "logo-bar": {
+        "type": "logo-bar",
+        "blocks": {
+          "65c3eef4-ee86-47b9-abb4-1c2345020e33": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Domino-41_pink-41.png",
+              "link": "https:\/\/www.domino.com\/content\/leanne-ford-pittsburgh-home-tour\/"
+            }
+          },
+          "logo_image-0": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Magazine_Featrures_e_Background-38.png",
+              "link": "https:\/\/cdn.shopify.com\/s\/files\/1\/0287\/8518\/0725\/files\/AD_India_-_The_Bathroom_Report_2020.pdf?v=1590707278"
+            }
+          },
+          "logo_image-1": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Magazine_Featrures_e_Background-37.png",
+              "link": "https:\/\/cdn.shopify.com\/s\/files\/1\/0287\/8518\/0725\/files\/RealLivingMAY2020.jpg?v=1590707276"
+            }
+          },
+          "logo_image-2": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Magazine_Featrures_e_Background-36.png",
+              "link": ""
+            }
+          },
+          "logo_image-3": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Magazine_Featrures_e_Background-39.png",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "65c3eef4-ee86-47b9-abb4-1c2345020e33",
+          "logo_image-0",
+          "logo_image-1",
+          "logo_image-2",
+          "logo_image-3"
+        ],
+        "settings": {
+          "colors": "white",
+          "width": 210,
+          "title": "As seen in"
+        }
+      },
+      "text-adverts": {
+        "type": "text-adverts",
+        "blocks": {
+          "text-advert-0": {
+            "type": "text",
+            "settings": {
+              "heading": "DELIVERY WORLDWIDE",
+              "subheading": "Contact us for International Shipping",
+              "link": ""
+            }
+          },
+          "text-advert-1": {
+            "type": "text",
+            "settings": {
+              "heading": "GLOBAL LEADERS",
+              "subheading": "in Architectural Concrete",
+              "link": ""
+            }
+          },
+          "text-advert-2": {
+            "type": "text",
+            "settings": {
+              "heading": "AUSTRALIAN MADE",
+              "subheading": "Shout about your unique selling points",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "text-advert-0",
+          "text-advert-1",
+          "text-advert-2"
+        ],
+        "settings": {
+          "colors": "light"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "footer-1": {
+            "type": "menu",
+            "settings": {
+              "menu_title": "INFORMATION",
+              "footer_linklist": "footer"
+            }
+          },
+          "1588911210316": {
+            "type": "menu",
+            "settings": {
+              "menu_title": "SHOP",
+              "footer_linklist": "shop-now"
+            }
+          },
+          "footer-3": {
+            "type": "social",
+            "settings": {
+              "social_title": "Get Connected"
+            }
+          },
+          "1587619002812": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Payment_Icons-13-19_76f6c1ae-a126-42b6-868e-8aca950da65d.png",
+              "link": "shopify:\/\/collections\/made-to-order",
+              "title": ""
+            }
+          }
+        },
+        "block_order": [
+          "footer-1",
+          "1588911210316",
+          "footer-3",
+          "1587619002812"
+        ],
+        "settings": {
+          "footer_text": "",
+          "show_methods_of_payment": false,
+          "alignment": "left",
+          "show_locale_selector": false,
+          "show_currency_selector": true
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "show-collection-image": true,
+          "parallax": true,
+          "collection-image-size": "20vh",
+          "collection-layout": "sidebar",
+          "show-collection-description": true,
+          "tags_enable": false,
+          "collection-show-sort-by": false,
+          "sort-by-manual": false,
+          "sort-by-price-ascending": false,
+          "sort-by-price-descending": false,
+          "sort-by-title-ascending": false,
+          "sort-by-title-descending": false,
+          "sort-by-created-ascending": false,
+          "sort-by-created-descending": false,
+          "sort-by-best-selling": false,
+          "desktop-products-per-row": 3,
+          "tablet-products-per-row": 2,
+          "mobile-products-per-row": 1,
+          "collection-products-per-page": 6,
+          "pagination_options": "pagination_infinite_scrolling",
+          "quick_shop_enable": false,
+          "hover-effect": false,
+          "show-vendor": false,
+          "match-height": true,
+          "show_reviews": true
+        }
+      },
+      "product-template": {
+        "type": "product-template",
+        "settings": {
+          "show_quantity_selector": true,
+          "show_tags": false,
+          "show_collections": false,
+          "show_type": false,
+          "show_vendor": false,
+          "show_sku": false,
+          "shipping_policy": true,
+          "tax_included": true,
+          "show_smart_checkout": false,
+          "trust-badge": "shopify:\/\/shop_images\/Trust_Badge_Updated_Bolder-26.png",
+          "trust-badge_max_width": 920,
+          "show_discount": "hide",
+          "description_position": "inline_bottom",
+          "enable_readmore": false,
+          "enable_sticky": true,
+          "enable_out_of_stock_form": false,
+          "product_variant_style": "dropdowns",
+          "thumbnail_changes_variant": true,
+          "image_size": "small",
+          "image-display": "thumbnails",
+          "thumbnail_position": "below",
+          "enable_image_zoom": true,
+          "enable_video_loop": false,
+          "show_reviews": false,
+          "enable_recently_viewed": false,
+          "recently_viewed_title": "Recently viewed products",
+          "quick_shop_enable_recently_viewed": false,
+          "recently_viewed_match_height": true
+        }
+      },
+      "page-contact-template": {
+        "type": "page-contact-template",
+        "blocks": {
+          "formfield-1": {
+            "type": "text",
+            "settings": {
+              "field-type": "text",
+              "form-field-label": "NAME",
+              "required": true
+            }
+          },
+          "1587970817071": {
+            "type": "text",
+            "settings": {
+              "field-type": "text",
+              "form-field-label": "COMPANY",
+              "required": false
+            }
+          },
+          "formfield-2": {
+            "type": "text",
+            "settings": {
+              "field-type": "email",
+              "form-field-label": "EMAIL",
+              "required": true
+            }
+          },
+          "1587970462284": {
+            "type": "text",
+            "settings": {
+              "field-type": "phone",
+              "form-field-label": "PHONE",
+              "required": false
+            }
+          },
+          "1587970505270": {
+            "type": "text",
+            "settings": {
+              "field-type": "text",
+              "form-field-label": "LOCATION (suburb)",
+              "required": false
+            }
+          },
+          "formfield-3": {
+            "type": "text",
+            "settings": {
+              "field-type": "textbox",
+              "form-field-label": "QUOTE DETAILS",
+              "required": true
+            }
+          }
+        },
+        "block_order": [
+          "formfield-1",
+          "1587970817071",
+          "formfield-2",
+          "1587970462284",
+          "1587970505270",
+          "formfield-3"
+        ],
+        "settings": {
+          "banner_image": "shopify:\/\/shop_images\/200129_ConcreteNation_20202039.jpg",
+          "banner-image-size": "40vh",
+          "parallax": false,
+          "layout": "below",
+          "show-map": true,
+          "height": "30vw",
+          "map_address": "11 William Banks Drive Burleigh Heads QLD 4220",
+          "api_key": "",
+          "background_image": "shopify:\/\/shop_images\/200129_ConcreteNation_20202129_4b228957-9b77-4299-8d3c-8597ea1e5e93.jpg"
+        }
+      },
+      "footer-newsletter": {
+        "type": "footer-newsletter",
+        "settings": {
+          "show_section": false,
+          "colors": "dark",
+          "newsletter_heading": "Join our Mailing List",
+          "newsletter_description": ""
+        }
+      },
+      "list-collections-template": {
+        "type": "list-collections-template",
+        "settings": {
+          "banner_image": "",
+          "banner-image-size": "20vh",
+          "parallax": true,
+          "show_title": false,
+          "quick_shop_enable": false,
+          "hover-effect": false,
+          "layout": "preview",
+          "items_per_row": 4,
+          "match-height": false,
+          "show_options": "all",
+          "show_reviews": false
+        }
+      },
+      "blog-template": {
+        "type": "blog-template",
+        "settings": {
+          "show_author_name": false,
+          "blog-sidebar-image": "",
+          "blog-sidebar-link": "",
+          "show_blog_tags": false,
+          "show_recent_posts": true,
+          "blog_show_date": true
+        }
+      },
+      "cart-template": {
+        "type": "cart-template",
+        "settings": {
+        }
+      },
+      "article-template": {
+        "type": "article-template",
+        "settings": {
+          "blog-sidebar-link": "",
+          "show_blog_tags": false,
+          "show_recent_posts": false,
+          "blog_show_date": true
+        }
+      },
+      "product-recommendations": {
+        "type": "product-recommendations",
+        "settings": {
+          "show_product_recommendations": false,
+          "product_recommendations_heading": "You may also like",
+          "quick_shop_enable": false,
+          "match-height": false
+        }
+      },
+      "page-template": {
+        "type": "page-template",
+        "blocks": {
+          "1587625011622": {
+            "type": "image_picker",
+            "settings": {
+              "sidebar_image": "shopify:\/\/shop_images\/200129_ConcreteNation_202023041_2776cc37-67d8-47d5-a864-cb18773624e6.jpg",
+              "image_title": "",
+              "image_link": ""
+            }
+          },
+          "1587941912502": {
+            "type": "menu",
+            "settings": {
+              "menu": ""
+            }
+          }
+        },
+        "block_order": [
+          "1587625011622",
+          "1587941912502"
+        ],
+        "settings": {
+          "page_width": "narrow",
+          "show_sidebar": false
+        }
+      },
+      "1588134401928": {
+        "type": "instafeed",
+        "settings": {
+          "heading_font": "lato_n4",
+          "heading_size": 20,
+          "feed_width": 100,
+          "html_area": "<!-- -->"
+        }
+      },
+      "page-gallery": {
+        "type": "page-gallery",
+        "blocks": {
+          "1593657039795": {
+            "type": "image_picker",
+            "settings": {
+              "sidebar_image": "shopify:\/\/shop_images\/MCP_C_S_0320_012A.jpg",
+              "image_title": "",
+              "image_link": ""
+            }
+          },
+          "1593657051664": {
+            "type": "text",
+            "settings": {
+              "title": "Title"
+            }
+          },
+          "1593657055802": {
+            "type": "image_picker",
+            "settings": {
+              "sidebar_image": "",
+              "image_title": "",
+              "image_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "1593657039795",
+          "1593657051664",
+          "1593657055802"
+        ],
+        "settings": {
+          "page_width": "full-width",
+          "show_sidebar": false
+        }
+      },
+      "1597641253382": {
+        "type": "video-hero",
+        "settings": {
+          "url": "https:\/\/www.youtube.com\/watch?v=pWrxbzbnUJA",
+          "desktopHeight": "550",
+          "mobileHeight": "350",
+          "title": "Inside the Concrete Nation HQ",
+          "subheading": "",
+          "textAlignment": "center",
+          "textColor": "#ffffff",
+          "textShadow": true,
+          "heading--text-size": 50,
+          "subheading--text-size": 24,
+          "button_link": "shopify:\/\/pages\/inside-concrete-nation-hq",
+          "button_label": "Meet the artisans & craftsmen"
+        }
+      },
+      "161171322866564ed9": {
+        "type": "feature-row",
+        "disabled": true,
+        "settings": {
+          "colors": "white",
+          "image": "shopify:\/\/shop_images\/Soft_Gold.jpg",
+          "parallax": false,
+          "text_overlapping_image": false,
+          "layout": "left",
+          "text_alignment": "center",
+          "image_width": "small",
+          "image_height": "50vw",
+          "title": "AS SEEN IN DOMINO MAGAZINE USA",
+          "text": "<p>Our statement freestanding Tropez basin’s clean curves caught the eye of celebrated US designer, Leanne Ford. We created a Tropez in Soft Gold for Leanne’s home in Pennsylvania and her HGTV show, Restored by the Fords for a striking bathroom revamp. <\/p>",
+          "button_label": "Shop the Tropez Here",
+          "button_link": "shopify:\/\/products\/tropez-freestanding-concrete-basin"
+        }
+      },
+      "1623633942ef1e8ba4": {
+        "type": "video-hero",
+        "settings": {
+          "url": "https:\/\/www.youtube.com\/watch?v=s-EL75GtQkA",
+          "desktopHeight": "650",
+          "mobileHeight": "fullscreen",
+          "title": "OUR FOCUS ON SUSTAINABILITY",
+          "subheading": "At Concrete Nation, we understand the importance of being socially responsible. When we launched our brand eight years ago, our goal was to offer ethical, high-quality products that were safe for our clients and the environment.",
+          "textAlignment": "center",
+          "textColor": "#ffffff",
+          "textShadow": false,
+          "heading--text-size": 36,
+          "subheading--text-size": 16,
+          "button_link": "shopify:\/\/pages\/sustainability",
+          "button_label": "READ MORE"
+        }
+      },
+      "16236379892c55769f": {
+        "type": "image-bar",
+        "blocks": {
+          "16236379892c55769f-0": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/concretenation_concretenation.com.au_leanneforde_greenstonecomobasin_2_-02-02.png",
+              "link": "",
+              "title": "",
+              "description": ""
+            }
+          }
+        },
+        "block_order": [
+          "16236379892c55769f-0"
+        ],
+        "settings": {
+          "colors": "white",
+          "title": "AS SEEN IN DOMINO MAGAZINE USA",
+          "richtext": "<p><\/p><p>Our statement freestanding Como basin's clean curves caught the eye of celebrated US designer, Leanne Ford. We created a Como Basin in Greenstone for Leanne’s most recent project, The Kerr Home and her HGTV show, Restored by the Fords for a striking bathroom revamp. Shop our Como <a href=\"\/products\/como-freestanding-concrete-basin\" title=\"COMO FREESTANDING CONCRETE BASIN\">Here.<\/a><\/p><p><\/p><p><\/p>"
+        }
+      }
+    },
+    "content_for_index": [
+      "slideshow",
+      "featured-products",
+      "collection-list",
+      "1623633942ef1e8ba4",
+      "feature-row",
+      "feature-row-1",
+      "text-adverts",
+      "161171322866564ed9",
+      "indiv-product-1",
+      "16236379892c55769f",
+      "logo-bar",
+      "1597641253382",
+      "featured-blog",
+      "video-hero",
+      "testimonials",
+      "newsletter",
+      "1588134401928"
+    ]
+  },
+  "presets": {
+    "Queenstown": {
+      "color_body_text": "#333333",
+      "color_primary": "#333333",
+      "color_body_bg": "#fff",
+      "color_body_bg_secondary": "#f8f8f8",
+      "color_primary_navigation": "#373737",
+      "color_primary_button_background": "#3e3e3e",
+      "color_primary_button_text": "#ffffff",
+      "color_primary_button_background_hover": "#9f9f9f",
+      "color_primary_button_text_hover": "#eeeeee",
+      "color_footer_bg": "#f2f2f2",
+      "color_footer_text": "#636363",
+      "type_header_font": "neuzeit_office_soft_rounded_n7",
+      "type_base_font": "neuzeit_office_n4",
+      "type_navigation_font": "neuzeit_office_soft_rounded_n7",
+      "header-text-size": 28,
+      "typography-body-font-size": 14,
+      "header-bg-color": "#ffffff",
+      "header-border-color": "#ffffff",
+      "header_font_size": 14,
+      "announcement_text_size": 12,
+      "announcement_text_spacing": 1,
+      "announcement_text_case": "none",
+      "sections": {
+        "announcement-bar": {
+          "type": "announcement-bar",
+          "settings": {
+            "notification-bar--background-color": "#242424",
+            "notification-bar--text-color": "#ffffff"
+          }
+        },
+        "header": {
+          "type": "header",
+          "settings": {
+            "logo_padding": 15,
+            "logo-placement": "center",
+            "label-enable": true
+          }
+        },
+        "slideshow": {
+          "type": "slideshow",
+          "blocks": {
+            "slideshow-0": {
+              "type": "image",
+              "settings": {
+                "button_label": "Shop now",
+                "button_link": "shopify:\/\/collections\/all",
+                "caption-text": "#ffffff",
+                "captionHorizontal": "right",
+                "captionAlignment": "right"
+              }
+            }
+          },
+          "block_order": [
+            "slideshow-0"
+          ],
+          "settings": {
+            "caption-heading-size": 38,
+            "caption-subheading-size": 18,
+            "show-slide-arrows": false
+          }
+        },
+        "collection-list": {
+          "type": "collection-list",
+          "blocks": {
+            "collection-0": {
+              "type": "featured_collection",
+              "settings": {
+                "subheading": "Subheading",
+                "overlay-btn-text": "Shop now",
+                "show-gradient-overlay": false,
+                "overlay_font_color": "#ffffff",
+                "overlay_color": "#323232"
+              }
+            },
+            "collection-1": {
+              "type": "featured_collection",
+              "settings": {
+                "subheading": "Subheading",
+                "overlay-btn-text": "Shop now",
+                "show-gradient-overlay": false,
+                "overlay_font_color": "#ffffff",
+                "overlay_color": "#323232"
+              }
+            }
+          },
+          "block_order": [
+            "collection-0",
+            "collection-1"
+          ],
+          "settings": {
+            "colors": "white",
+            "title": "",
+            "richtext": "",
+            "items-per-row": 2,
+            "fill-the-area": true,
+            "content-position": "below-image"
+          }
+        },
+        "featured-products-2": {
+          "type": "featured-products",
+          "settings": {
+            "grid-desktop": 4,
+            "rows": 1
+          }
+        },
+        "video-hero": {
+          "type": "video-hero",
+          "settings": {
+            "desktopHeight": "550",
+            "mobileHeight": "350",
+            "title": "Animate your brand",
+            "subheading": "Promote a page or collection",
+            "heading--text-size": 50,
+            "subheading--text-size": 24,
+            "button_link": "shopify:\/\/collections\/all",
+            "button_label": "Learn more"
+          }
+        },
+        "featured-products": {
+          "type": "featured-products",
+          "settings": {
+            "grid-desktop": 4,
+            "rows": 2
+          }
+        },
+        "text-with-image-overlay-1": {
+          "type": "image-with-text-overlay",
+          "settings": {
+            "image_height": "30vw",
+            "parallax": true,
+            "colors": "white",
+            "button_label": "Shop now",
+            "button_link": "shopify:\/\/collections\/all"
+          }
+        },
+        "logo-bar": {
+          "type": "logo-bar",
+          "blocks": {
+            "logo_image-0": {
+              "type": "logo_image",
+              "settings": {
+              }
+            },
+            "logo_image-1": {
+              "type": "logo_image",
+              "settings": {
+              }
+            },
+            "logo_image-2": {
+              "type": "logo_image",
+              "settings": {
+              }
+            },
+            "logo_image-3": {
+              "type": "logo_image",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "logo_image-0",
+            "logo_image-1",
+            "logo_image-2",
+            "logo_image-3"
+          ],
+          "settings": {
+            "colors": "light"
+          }
+        },
+        "testimonials": {
+          "type": "testimonials",
+          "blocks": {
+            "testimonials-0": {
+              "type": "text",
+              "settings": {
+                "testimonial_text": "<p>\"Show off incredible feedback from your customers\"<\/p>",
+                "customer_name": "John Doe",
+                "stars": 5
+              }
+            },
+            "testimonials-1": {
+              "type": "text",
+              "settings": {
+                "testimonial_text": "<p>\"Show off incredible feedback from your customers\"<\/p>",
+                "customer_name": "John Doe",
+                "stars": 5
+              }
+            },
+            "testimonials-2": {
+              "type": "text",
+              "settings": {
+                "testimonial_text": "<p>\"Show off incredible feedback from your customers\"<\/p>",
+                "customer_name": "John Doe",
+                "stars": 5
+              }
+            }
+          },
+          "block_order": [
+            "testimonials-0",
+            "testimonials-1",
+            "testimonials-2"
+          ],
+          "settings": {
+            "colors": "white",
+            "circle_images": true,
+            "title": "Testimonials"
+          }
+        },
+        "feature-row-1": {
+          "type": "feature-row",
+          "settings": {
+            "text_alignment": "left",
+            "button_label": "Shop now",
+            "button_link": "shopify:\/\/collections\/all"
+          }
+        },
+        "individual-product-1": {
+          "type": "indiv-product",
+          "settings": {
+            "title": ""
+          }
+        },
+        "featured-blog": {
+          "type": "featured-blog",
+          "settings": {
+            "post_limit": 3
+          }
+        },
+        "text-adverts": {
+          "type": "text-adverts",
+          "blocks": {
+            "advert-0": {
+              "type": "text",
+              "settings": {
+                "heading": "Free Delivery Worldwide",
+                "subheading": "Click here for more info"
+              }
+            },
+            "advert-1": {
+              "type": "text",
+              "settings": {
+                "heading": "Final Clearance Sale",
+                "subheading": "Up to 70% off"
+              }
+            },
+            "advert-2": {
+              "type": "text",
+              "settings": {
+                "heading": "Browse Bestsellers",
+                "subheading": "What we do best"
+              }
+            }
+          },
+          "block_order": [
+            "advert-0",
+            "advert-1",
+            "advert-2"
+          ],
+          "settings": {
+            "colors": "dark"
+          }
+        },
+        "footer-newsletter": {
+          "type": "footer-newsletter",
+          "settings": {
+            "show_section": true,
+            "colors": "white"
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "footer-0": {
+              "type": "text",
+              "settings": {
+              }
+            },
+            "footer-1": {
+              "type": "menu",
+              "settings": {
+              }
+            },
+            "footer-2": {
+              "type": "newsletter",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "footer-0",
+            "footer-1",
+            "footer-2"
+          ],
+          "settings": {
+          }
+        },
+        "page-contact-template": {
+          "type": "page-contact-template",
+          "blocks": {
+            "form-1": {
+              "type": "text",
+              "settings": {
+                "field-type": "text",
+                "form-field-label": "",
+                "required": false
+              }
+            },
+            "form-2": {
+              "type": "text",
+              "settings": {
+                "field-type": "email",
+                "form-field-label": "",
+                "required": false
+              }
+            },
+            "form-3": {
+              "type": "text",
+              "settings": {
+                "field-type": "textbox",
+                "form-field-label": "",
+                "required": false
+              }
+            }
+          },
+          "block_order": [
+            "form-1",
+            "form-2",
+            "form-3"
+          ],
+          "settings": {
+          }
+        },
+        "product-template": {
+          "type": "product-template",
+          "settings": {
+            "trust-badge_max_width": 180,
+            "show_discount": "value",
+            "description_position": "inline_top",
+            "image-display": "thumbnails"
+          }
+        },
+        "collection-template": {
+          "type": "collection-template",
+          "settings": {
+            "collection-image-size": "30vh",
+            "tags_enable": false,
+            "collection-show-sort-by": true,
+            "sort-by-manual": true,
+            "sort-by-price-ascending": true,
+            "sort-by-price-descending": true,
+            "sort-by-title-ascending": true,
+            "sort-by-title-descending": true,
+            "sort-by-created-ascending": true,
+            "sort-by-created-descending": true,
+            "sort-by-best-selling": true,
+            "desktop-products-per-row": 3,
+            "tablet-products-per-row": 2
+          }
+        }
+      },
+      "content_for_index": [
+        "slideshow",
+        "collection-list",
+        "featured-products-2",
+        "video-hero",
+        "featured-products",
+        "text-with-image-overlay-1",
+        "logo-bar",
+        "testimonials",
+        "feature-row-1",
+        "individual-product-1",
+        "featured-blog",
+        "text-adverts"
+      ]
+    },
+    "Byron": {
+      "color_body_text": "#212121",
+      "color_primary": "#212121",
+      "color_body_bg": "#ffffff",
+      "color_body_bg_secondary": "#f1f1f1",
+      "sale_badge_color": "#7a7a7a",
+      "enable-sale-badge": true,
+      "sold_out_badge_color": "#212121",
+      "enable-sold-out-badge": true,
+      "cart_color": "#212121",
+      "color_primary_navigation": "#212121",
+      "color_primary_navigation_hover": "#454545",
+      "header-bg-color": "#ffffff",
+      "header-border-color": "#ffffff",
+      "header-transparent-text": "#212121",
+      "header-transparent-background": "#000",
+      "mobile-menu-bg": "#212121",
+      "mobile-menu-text": "#F5F5F5",
+      "mobile-menu-text-hover": "#ffffff",
+      "color_primary_button_background": "#212121",
+      "color_primary_button_text": "#ffffff",
+      "color_primary_button_background_hover": "#000000",
+      "color_primary_button_text_hover": "#ffffff",
+      "color_secondary_button_background": "#9e9e9e",
+      "color_secondary_button_text": "#ffffff",
+      "color_secondary_button_background_hover": "#ababab",
+      "color_secondary_button_text_hover": "#ffffff",
+      "colorSchemeLightBackground": "#f1f1f1",
+      "colorSchemeLightText": "#212121",
+      "homepage-sections-accent-primary-color": "#e3e5e7",
+      "homepage-sections-accent-secondary-color": "#212121",
+      "colorSchemeDarkBackground": "#212121",
+      "colorSchemeDarkText": "#ffffff",
+      "hero-description-color": "#ffffff",
+      "pop-up-text-background-color": "#212121",
+      "pop-up-text-header-text-color": "#ffffff",
+      "cart-drawer-bg": "#ffffff",
+      "cart-drawer-text": "#212121",
+      "color_footer_bg": "#ffffff",
+      "color_footer_text": "#212121",
+      "type_header_font": "poppins_n6",
+      "header-text-size": 20,
+      "heading_spacing": 1,
+      "heading_font_case": "uppercase",
+      "heading_style": "underline",
+      "heading_style_color": "#9e9e9e",
+      "type_base_font": "poppins_n4",
+      "typography-body-font-size": 14,
+      "type_navigation_font": "poppins_n6",
+      "header_font_size": 12,
+      "header_font_case": "uppercase",
+      "product_page_font_size": 22,
+      "announcement_text_size": 12,
+      "announcement_text_spacing": 1,
+      "announcement_text_style": "normal",
+      "ajax_cart_method": "drawer",
+      "cart_vendor_enable": true,
+      "cart_notes_enable": true,
+      "popup--enable": false,
+      "popup--show-social-icons": false,
+      "popup--show-newsletter": true,
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "medium",
+      "checkout_body_background_color": "#fff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_color": "#292929",
+      "checkout_accent_color": "#000000",
+      "checkout_button_color": "#292929",
+      "checkout_error_color": "#212121",
+      "sections": {
+        "announcement-bar": {
+          "type": "announcement-bar",
+          "settings": {
+            "enable_announcement_bar": true,
+            "notification-bar--background-color": "#212121",
+            "notification-bar--text-color": "#fff"
+          }
+        },
+        "header": {
+          "type": "header",
+          "settings": {
+            "logo_max_width": 140,
+            "logo_padding": 15,
+            "mobile-menu-logo": false,
+            "overlay_header_homepage": true
+          }
+        },
+        "footer-newsletter": {
+          "type": "footer-newsletter",
+          "settings": {
+            "show_section": true,
+            "colors": "accent"
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "footer-0": {
+              "type": "text",
+              "settings": {
+              }
+            },
+            "footer-1": {
+              "type": "menu",
+              "settings": {
+              }
+            },
+            "footer-2": {
+              "type": "newsletter",
+              "settings": {
+              }
+            },
+            "footer-3": {
+              "type": "social",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "footer-0",
+            "footer-1",
+            "footer-2",
+            "footer-3"
+          ],
+          "settings": {
+            "footer_text": "",
+            "show_methods_of_payment": false
+          }
+        },
+        "page-contact-template": {
+          "type": "page-contact-template",
+          "blocks": {
+            "form-1": {
+              "type": "text",
+              "settings": {
+                "field-type": "text",
+                "form-field-label": "",
+                "required": false
+              }
+            },
+            "form-2": {
+              "type": "text",
+              "settings": {
+                "field-type": "email",
+                "form-field-label": "",
+                "required": false
+              }
+            },
+            "form-3": {
+              "type": "text",
+              "settings": {
+                "field-type": "textbox",
+                "form-field-label": "",
+                "required": false
+              }
+            }
+          },
+          "block_order": [
+            "form-1",
+            "form-2",
+            "form-3"
+          ],
+          "settings": {
+            "layout": "left"
+          }
+        },
+        "product-template": {
+          "type": "product-template",
+          "settings": {
+            "trust-badge_max_width": 180,
+            "show_discount": "value",
+            "enable_out_of_stock_form": true,
+            "image-display": "thumbnails",
+            "enable_image_zoom": true
+          }
+        },
+        "collection-template": {
+          "type": "collection-template",
+          "settings": {
+            "show-collection-image": false,
+            "collection-image-size": "30vh",
+            "desktop-products-per-row": 3,
+            "collection-products-per-page": 3,
+            "pagination_options": "pagination_load_more",
+            "hover-effect": true
+          }
+        },
+        "blog-template": {
+          "type": "blog-template",
+          "settings": {
+            "show_author_name": true,
+            "blog-sidebar-image": "",
+            "blog-sidebar-link": "",
+            "show_blog_tags": false,
+            "show_recent_posts": true,
+            "blog_show_date": true
+          }
+        },
+        "page-template": {
+          "type": "page-template",
+          "settings": {
+          }
+        },
+        "video-hero": {
+          "type": "video-hero",
+          "settings": {
+            "mobileHeight": "450",
+            "title": "Share your story",
+            "subheading": "",
+            "textAlignment": "center",
+            "textColor": "#212121",
+            "textShadow": false,
+            "heading--text-size": 60,
+            "button_link": "shopify:\/\/collections\/all",
+            "button_label": "Shop now"
+          }
+        },
+        "featured-products": {
+          "type": "featured-products",
+          "settings": {
+            "title": "Title",
+            "rows": 1,
+            "hover-effect": true
+          }
+        },
+        "featured-products-2": {
+          "type": "featured-products",
+          "settings": {
+            "title": "Title",
+            "rows": 2,
+            "hover-effect": true
+          }
+        },
+        "feature-row": {
+          "type": "feature-row",
+          "settings": {
+            "text_alignment": "left",
+            "button_label": "Read more",
+            "button_link": "shopify:\/\/collections\/all"
+          }
+        },
+        "testimonials": {
+          "type": "testimonials",
+          "blocks": {
+            "testimonial-0": {
+              "type": "text",
+              "settings": {
+                "testimonial_text": "<p>\"Show off incredible feedback from your customers\"<\/p>",
+                "customer_name": "John Doe",
+                "stars": 5
+              }
+            },
+            "testimonial-1": {
+              "type": "text",
+              "settings": {
+                "testimonial_text": "<p>\"Show off incredible feedback from your customers\"<\/p>",
+                "customer_name": "John Doe",
+                "stars": 5
+              }
+            },
+            "testimonial-2": {
+              "type": "text",
+              "settings": {
+                "testimonial_text": "<p>\"Show off incredible feedback from your customers\"<\/p>",
+                "customer_name": "John Doe",
+                "stars": 5
+              }
+            }
+          },
+          "block_order": [
+            "testimonial-0",
+            "testimonial-1",
+            "testimonial-2"
+          ],
+          "settings": {
+            "colors": "light"
+          }
+        },
+        "collection-list": {
+          "type": "collection-list",
+          "blocks": {
+            "collection-list-0": {
+              "type": "featured_collection",
+              "settings": {
+              }
+            },
+            "collection-list-1": {
+              "type": "featured_collection",
+              "settings": {
+              }
+            },
+            "collection-list-2": {
+              "type": "featured_collection",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "collection-list-0",
+            "collection-list-1",
+            "collection-list-2"
+          ],
+          "settings": {
+            "content-position": "hover-additional"
+          }
+        },
+        "logo-bar": {
+          "type": "logo-bar",
+          "blocks": {
+            "logo-bar-1": {
+              "type": "logo_image",
+              "settings": {
+              }
+            },
+            "logo-bar-2": {
+              "type": "logo_image",
+              "settings": {
+              }
+            },
+            "logo-bar-3": {
+              "type": "logo_image",
+              "settings": {
+              }
+            },
+            "logo-bar-4": {
+              "type": "logo_image",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "logo-bar-1",
+            "logo-bar-2",
+            "logo-bar-3",
+            "logo-bar-4"
+          ],
+          "settings": {
+          }
+        },
+        "featured-blog": {
+          "type": "featured-blog",
+          "settings": {
+            "post_limit": 2,
+            "blog_show_date": true
+          }
+        },
+        "featured-product": {
+          "type": "indiv-product",
+          "settings": {
+          }
+        },
+        "image-bar": {
+          "type": "image-bar",
+          "blocks": {
+            "image-bar-0": {
+              "type": "image",
+              "settings": {
+              }
+            },
+            "image-bar-1": {
+              "type": "image",
+              "settings": {
+              }
+            },
+            "image-bar-2": {
+              "type": "image",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "image-bar-0",
+            "image-bar-1",
+            "image-bar-2"
+          ],
+          "settings": {
+            "colors": "white",
+            "title": "Gallery",
+            "richtext": "<p>Summerise your images and promote your products<\/p>"
+          }
+        }
+      },
+      "content_for_index": [
+        "video-hero",
+        "featured-products",
+        "collection-list",
+        "featured-products-2",
+        "testimonials",
+        "logo-bar",
+        "feature-row",
+        "featured-blog",
+        "featured-product",
+        "image-bar"
+      ]
+    },
+    "Cannes": {
+      "color_body_text": "#000000",
+      "color_primary": "#000000",
+      "color_body_bg": "#ffffff",
+      "color_body_bg_secondary": "#f3f3f3",
+      "color_primary_button_background": "#000000",
+      "color_primary_button_text": "#ffffff",
+      "color_primary_button_background_hover": "#282828",
+      "color_primary_button_text_hover": "#ffffff",
+      "color_footer_bg": "#ffffff",
+      "color_footer_text": "#636363",
+      "type_header_font": "madera_n4",
+      "type_base_font": "avenir_next_n4",
+      "type_navigation_font": "madera_n4",
+      "header-text-size": 22,
+      "typography-body-font-size": 16,
+      "header_font_size": 15,
+      "color_primary_navigation": "#000000",
+      "color_primary_navigation_hover": "#bfbfbf",
+      "header-bg-color": "#ffffff",
+      "header-border-color": "#ffffff",
+      "hero-description-color": "#ffffff",
+      "sale_badge_color": "#000000",
+      "button_style": "square",
+      "button_text_case": "uppercase",
+      "button_font_size": 12,
+      "button_font_style": "normal",
+      "heading_style": "underline",
+      "pop-up-text-background-color": "#242424",
+      "pop-up-text-header-text-color": "#fff",
+      "popup--enable": true,
+      "announcement_text_size": 12,
+      "announcement_text_spacing": 1,
+      "announcement_text_style": "normal",
+      "announcement_text_case": "normal",
+      "ajax_cart_method": "added",
+      "sections": {
+        "announcement-bar": {
+          "type": "announcement-bar",
+          "settings": {
+            "notification-bar--background-color": "#f1f2f3"
+          }
+        },
+        "header": {
+          "type": "header",
+          "settings": {
+            "sticky_header": false,
+            "logo_padding": 30,
+            "logo-placement": "center",
+            "overlay_header_homepage": true
+          }
+        },
+        "featured-products": {
+          "type": "featured-products",
+          "settings": {
+            "rows": 1,
+            "hover-effect": true
+          }
+        },
+        "collection-list": {
+          "type": "collection-list",
+          "blocks": {
+            "collection-0": {
+              "type": "featured_collection",
+              "settings": {
+                "collection": "",
+                "subheading": ""
+              }
+            },
+            "collection-1": {
+              "type": "featured_collection",
+              "settings": {
+                "collection": "",
+                "subheading": ""
+              }
+            },
+            "collection-2": {
+              "type": "featured_collection",
+              "settings": {
+                "collection": "",
+                "subheading": ""
+              }
+            }
+          },
+          "block_order": [
+            "collection-0",
+            "collection-1",
+            "collection-2"
+          ],
+          "settings": {
+            "colors": "white",
+            "title": "",
+            "content-position": "overlay"
+          }
+        },
+        "newsletter": {
+          "type": "newsletter",
+          "settings": {
+            "colors": "dark"
+          }
+        },
+        "video-hero": {
+          "type": "video-hero",
+          "settings": {
+            "desktopHeight": "450",
+            "mobileHeight": "350",
+            "title": "Shout out",
+            "subheading": "Promote a page or collection",
+            "heading--text-size": 38,
+            "subheading--text-size": 24,
+            "button_link": "shopify:\/\/collections\/all",
+            "button_label": "Shop now"
+          }
+        },
+        "feature-row": {
+          "type": "feature-row",
+          "settings": {
+            "parallax": true,
+            "text_overlapping_image": false,
+            "text_alignment": "center",
+            "button_label": "Shop now",
+            "button_link": "\/collections\/all"
+          }
+        },
+        "feature-row-1": {
+          "type": "feature-row",
+          "settings": {
+            "parallax": true,
+            "text_overlapping_image": false,
+            "layout": "right",
+            "text_alignment": "center",
+            "button_label": "Shop now",
+            "button_link": "\/collections\/all"
+          }
+        },
+        "indiv-product-1": {
+          "type": "indiv-product",
+          "settings": {
+          }
+        },
+        "featured-blog": {
+          "type": "featured-blog",
+          "settings": {
+            "colors": "white"
+          }
+        },
+        "slideshow": {
+          "type": "slideshow",
+          "blocks": {
+            "slideshow-0": {
+              "type": "image",
+              "settings": {
+                "button_label": "Shop now",
+                "button_link": "shopify:\/\/collections\/all",
+                "caption-text": "#ffffff",
+                "captionHorizontal": "right",
+                "captionAlignment": "right"
+              }
+            }
+          },
+          "block_order": [
+            "slideshow-0"
+          ],
+          "settings": {
+            "caption-heading-size": 40,
+            "caption-subheading-size": 18,
+            "caption-button-size": 14,
+            "show-slide-arrows": false
+          }
+        },
+        "testimonials": {
+          "type": "testimonials",
+          "blocks": {
+            "testimonial": {
+              "type": "text",
+              "settings": {
+                "testimonial_text": "<p>\"Show off incredible feedback from your customers\"<\/p>",
+                "customer_name": "John Doe",
+                "stars": 5
+              }
+            }
+          },
+          "block_order": [
+            "testimonial"
+          ],
+          "settings": {
+            "colors": "accent",
+            "title": ""
+          }
+        },
+        "logo-bar": {
+          "type": "logo-bar",
+          "blocks": {
+            "logo_image-0": {
+              "type": "logo_image",
+              "settings": {
+              }
+            },
+            "logo_image-1": {
+              "type": "logo_image",
+              "settings": {
+              }
+            },
+            "logo_image-2": {
+              "type": "logo_image",
+              "settings": {
+              }
+            },
+            "logo_image-3": {
+              "type": "logo_image",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "logo_image-0",
+            "logo_image-1",
+            "logo_image-2",
+            "logo_image-3"
+          ],
+          "settings": {
+            "colors": "light"
+          }
+        },
+        "text-adverts": {
+          "type": "text-adverts",
+          "blocks": {
+            "text-advert-0": {
+              "type": "text",
+              "settings": {
+                "heading": "Free Delivery Worldwide",
+                "subheading": "Shout about your unique selling points"
+              }
+            },
+            "text-advert-1": {
+              "type": "text",
+              "settings": {
+                "heading": "Final Clearance Sale",
+                "subheading": "Shout about your unique selling points",
+                "link": ""
+              }
+            },
+            "text-advert-2": {
+              "type": "text",
+              "settings": {
+                "heading": "New Store Opening",
+                "subheading": "Shout about your unique selling points",
+                "link": ""
+              }
+            }
+          },
+          "block_order": [
+            "text-advert-0",
+            "text-advert-1",
+            "text-advert-2"
+          ],
+          "settings": {
+            "colors": "light"
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "footer-0": {
+              "type": "text",
+              "settings": {
+              }
+            },
+            "footer-1": {
+              "type": "menu",
+              "settings": {
+              }
+            },
+            "footer-2": {
+              "type": "newsletter",
+              "settings": {
+              }
+            },
+            "footer-3": {
+              "type": "social",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "footer-0",
+            "footer-1",
+            "footer-2",
+            "footer-3"
+          ],
+          "settings": {
+          }
+        },
+        "collection-template": {
+          "type": "collection-template",
+          "settings": {
+            "show-collection-image": false,
+            "parallax": false,
+            "collection-layout": "sidebar",
+            "collection-show-sort-by": true,
+            "sort-by-manual": true,
+            "sort-by-price-ascending": true,
+            "sort-by-price-descending": true,
+            "sort-by-title-ascending": true,
+            "sort-by-title-descending": true,
+            "sort-by-created-ascending": true,
+            "sort-by-created-descending": true,
+            "sort-by-best-selling": true,
+            "desktop-products-per-row": 3,
+            "tablet-products-per-row": 2,
+            "mobile-products-per-row": 1
+          }
+        },
+        "product-template": {
+          "type": "product-template",
+          "settings": {
+            "trust-badge_max_width": 240,
+            "description_position": "inline_top",
+            "enable_readmore": true,
+            "image_size": "large",
+            "enable_recently_viewed": true
+          }
+        },
+        "page-contact-template": {
+          "type": "page-contact-template",
+          "blocks": {
+            "formfield-1": {
+              "type": "text",
+              "settings": {
+                "field-type": "text",
+                "form-field-label": "Name",
+                "required": false
+              }
+            },
+            "formfield-2": {
+              "type": "text",
+              "settings": {
+                "field-type": "email",
+                "form-field-label": "Email",
+                "required": false
+              }
+            },
+            "formfield-3": {
+              "type": "text",
+              "settings": {
+                "field-type": "textbox",
+                "form-field-label": "Message",
+                "required": false
+              }
+            }
+          },
+          "block_order": [
+            "formfield-1",
+            "formfield-2",
+            "formfield-3"
+          ],
+          "settings": {
+            "parallax": false,
+            "layout": "right",
+            "show-map": false
+          }
+        }
+      },
+      "content_for_index": [
+        "slideshow",
+        "collection-list",
+        "featured-products",
+        "feature-row",
+        "feature-row-1",
+        "testimonials",
+        "newsletter",
+        "indiv-product-1",
+        "featured-blog",
+        "logo-bar",
+        "video-hero",
+        "text-adverts"
+      ]
+    }
+  }
+}
